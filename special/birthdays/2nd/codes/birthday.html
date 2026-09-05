@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08050b"><title>BUGU — 05.09.2026 ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+  <body>
+    
+<div id="stars"></div><div class="grain"></div><div class="progress"><i></i></div>
+  <!-- BIRTHDAY MUSIC -->
+<audio id="birthdayMusic" preload="auto" loop>
+  <source src="audio/happy-birthday.mp3" type="audio/mpeg">
+</audio>
+<div id="cinematicIntro" class="cinematic-intro">
+  <div class="intro-stars"></div>
+  <p class="eyebrow">A FILM BY PUGU</p>
+  <div class="intro-title">For <em>Bugu</em></div>
+  <p class="intro-sub">A little universe made from our moments.</p>
+  <div class="intro-controls">
+
+  <button class="music-toggle" onclick="toggleBirthdayMusic()" id="musicToggle">
+    <span id="musicIcon">♫</span>
+    <span id="musicText">MUSIC OFF</span>
+  </button>
+
+  <button class="intro-enter" onclick="enterFilm()">
+    ENTER THE FILM <span>✦</span>
+  </button>
+
+</div>
+</div>
+<nav><b>BUGU ♡ PUGU</b><span id="scene">01 / 13</span></nav>
+
+<section class="hero" id="hero">
+ <div class="aurora"></div><div class="orb">♡</div><div class="cat">🐈</div>
+ <p class="eyebrow">A PRIVATE BIRTHDAY EXPERIENCE</p><h1>Happy<br><em>Bugu Day</em></h1>
+ <p class="lead">There are birthdays. And then there are birthdays made from every little thing that makes one person special.</p>
+ <div id="countdown" class="countdown">05 · 09 · 2026</div>
+ <button class="cta" onclick="go('begin')">BEGIN THE EXPERIENCE <span>→</span></button>
+</section>
+
+<section class="chapter" id="begin"><p class="eyebrow">02 / THE FIRST PAGE</p><h2>22 July<br><em>2025</em></h2><p>One date. One beginning. A story that kept collecting little moments.</p>
+<div class="datecard"><div><b>22</b><small>JUL</small><span>2025</span></div><strong>♡</strong><div><b>05</b><small>SEP</small><span>2026</span></div></div>
+<button class="next" onclick="go('memory')">Open the memories →</button></section>
+
+<section class="chapter" id="memory">
+
+  <p class="eyebrow">03 / MEMORY FILM</p>
+
+  <h2>
+    Four frames.<br>
+    <em>Infinite meaning.</em>
+  </h2>
+
+  <p>
+    Four little pieces of us, waiting to become memories.
+    Tap any photo to open it.
+  </p>
+
+  <div class="film">
+
+    <!-- PHOTO 01 -->
+    <button class="frame cinematic-photo photo-1"
+      onclick="openPhotoViewer(0)"
+      aria-label="Open The Beginning photo">
+
+      <img
+        src="photos/memory1.jpg"
+        alt="The Beginning"
+        loading="lazy">
+
+      <div class="photo-placeholder">
+        <span class="placeholder-icon">♡</span>
+        <small>YOUR PHOTO</small>
+      </div>
+
+      <div class="frame-info">
+        <span>01</span>
+        <b>The Beginning</b>
+        <small>22 JULY 2025</small>
+      </div>
+
+      <div class="expand-icon">⤢</div>
+
+    </button>
+
+
+    <!-- PHOTO 02 -->
+    <button class="frame cinematic-photo photo-2"
+      onclick="openPhotoViewer(1)"
+      aria-label="Open Your Smile photo">
+
+      <img
+        src="photos/memory2.jpg"
+        alt="Your Smile"
+        loading="lazy">
+
+      <div class="photo-placeholder">
+        <span class="placeholder-icon">✦</span>
+        <small>YOUR PHOTO</small>
+      </div>
+
+      <div class="frame-info">
+        <span>02</span>
+        <b>Your Smile</b>
+        <small>THE LITTLE THING</small>
+      </div>
+
+      <div class="expand-icon">⤢</div>
+
+    </button>
+
+
+    <!-- PHOTO 03 -->
+    <button class="frame cinematic-photo photo-3"
+      onclick="openPhotoViewer(2)"
+      aria-label="Open Us photo">
+
+      <img
+        src="photos/memory3.jpg"
+        alt="Us"
+        loading="lazy">
+
+      <div class="photo-placeholder">
+        <span class="placeholder-icon">♡</span>
+        <small>YOUR PHOTO</small>
+      </div>
+
+      <div class="frame-info">
+        <span>03</span>
+        <b>Us</b>
+        <small>JUST US</small>
+      </div>
+
+      <div class="expand-icon">⤢</div>
+
+    </button>
+
+
+    <!-- PHOTO 04 -->
+    <button class="frame cinematic-photo photo-4"
+      onclick="openPhotoViewer(3)"
+      aria-label="Open Favourite Day photo">
+
+      <img
+        src="photos/memory4.jpg"
+        alt="Favourite Day"
+        loading="lazy">
+
+      <div class="photo-placeholder">
+        <span class="placeholder-icon">✧</span>
+        <small>YOUR PHOTO</small>
+      </div>
+
+      <div class="frame-info">
+        <span>04</span>
+        <b>Favourite Day</b>
+        <small>A DAY TO REMEMBER</small>
+      </div>
+
+      <div class="expand-icon">⤢</div>
+
+    </button>
+
+  </div>
+
+  <button class="next" onclick="go('timeline')">
+    Open the film of us →
+  </button>
+
+</section>
+
+
+<!-- =================================================
+     FULL SCREEN PHOTO VIEWER
+     ================================================= -->
+
+<div
+  id="photoViewer"
+  class="photo-viewer"
+  aria-hidden="true">
+
+  <!-- CLOSE BUTTON -->
+  <button
+    class="viewer-close"
+    onclick="closePhotoViewer()"
+    aria-label="Close photo viewer">
+    ×
+  </button>
+
+  <!-- DARK BACKGROUND -->
+  <div class="viewer-backdrop"></div>
+
+  <!-- VIEWER -->
+  <div class="viewer-content">
+
+    <div class="viewer-photo">
+
+      <img
+        id="viewerImage"
+        src=""
+        alt="">
+
+      <!-- Shown only if JPG cannot be found -->
+      <div class="viewer-placeholder">
+
+        <span>♡</span>
+
+        <small id="viewerPlaceholderText">
+          YOUR MEMORY
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <!-- CAPTION -->
+    <div class="viewer-caption">
+
+      <span id="viewerNumber">
+        01
+      </span>
+
+      <h3 id="viewerTitle">
+        The Beginning
+      </h3>
+
+      <p id="viewerSubtitle">
+        22 JULY 2025
+      </p>
+
+    </div>
+
+  </div>
+
+</div>  
+  
+ <!-- =========================================================
+     FILM OF US — 4 CHAPTERS
+     ========================================================= -->
+
+<section class="chapter film-of-us" id="timeline">
+
+  <p class="eyebrow">04 / FILM OF US</p>
+
+  <h2>
+    Four chapters.<br>
+    <em>One us.</em>
+  </h2>
+
+  <p>
+    Four little letters from our story.
+    Tap a chapter to open it.
+  </p>
+
+  <div class="us-chapters">
+
+    <!-- CHAPTER I -->
+    <button
+      class="us-chapter"
+      onclick="openUsLetter(0)"
+      aria-label="Open Chapter One">
+
+      <span class="chapter-number">I</span>
+
+      <span class="chapter-symbol">♡</span>
+
+      <span class="chapter-name">
+        The Beginning
+      </span>
+
+      <small>
+        WHERE IT ALL STARTED
+      </small>
+
+    </button>
+
+
+    <!-- CHAPTER II -->
+    <button
+      class="us-chapter"
+      onclick="openUsLetter(1)"
+      aria-label="Open Chapter Two">
+
+      <span class="chapter-number">II</span>
+
+      <span class="chapter-symbol">✦</span>
+
+      <span class="chapter-name">
+        Little Things
+      </span>
+
+      <small>
+        THE MOMENTS IN BETWEEN
+      </small>
+
+    </button>
+
+
+    <!-- CHAPTER III -->
+    <button
+      class="us-chapter"
+      onclick="openUsLetter(2)"
+      aria-label="Open Chapter Three">
+
+      <span class="chapter-number">III</span>
+
+      <span class="chapter-symbol">∞</span>
+
+      <span class="chapter-name">
+        Becoming Us
+      </span>
+
+      <small>
+        SOMEWHERE ALONG THE WAY
+      </small>
+
+    </button>
+
+
+    <!-- CHAPTER IV -->
+    <button
+      class="us-chapter"
+      onclick="openUsLetter(3)"
+      aria-label="Open Chapter Four">
+
+      <span class="chapter-number">IV</span>
+
+      <span class="chapter-symbol">♡</span>
+
+      <span class="chapter-name">
+        Still Us
+      </span>
+
+      <small>
+        THIS IS ONLY THE BEGINNING
+      </small>
+
+    </button>
+
+  </div>
+
+  <p class="chapter-hint">
+    Tap a chapter to read its letter · tap anywhere to close
+  </p>
+
+  <button class="next" onclick="go('reasons')">
+    Open the reasons →
+  </button>
+</section>
+
+
+<!-- =========================================================
+     FILM OF US — LETTER OVERLAY
+     ========================================================= -->
+
+<div
+  id="usLetterViewer"
+  class="us-letter-viewer"
+  aria-hidden="true">
+
+  <div class="us-letter-backdrop"></div>
+
+  <article
+    class="us-letter-card"
+    role="dialog"
+    aria-modal="true">
+
+    <div class="letter-top">
+
+      <span id="usLetterChapter">
+        CHAPTER I
+      </span>
+
+      <button
+        class="us-letter-close"
+        onclick="closeUsLetter()"
+        aria-label="Close letter">
+        ×
+      </button>
+
+    </div>
+
+    <div class="letter-seal">
+      ♡
+    </div>
+
+    <p
+      class="letter-label"
+      id="usLetterLabel">
+      THE BEGINNING
+    </p>
+
+    <h3 id="usLetterTitle">
+      Where it all started.
+    </h3>
+
+    <div
+      class="us-letter-body"
+      id="usLetterBody">
+
+      <p>
+        Some stories begin loudly.
+        Ours began quietly.
+      </p>
+
+      <p>
+        One date became a beginning,
+        and somehow that beginning became
+        one of my favourite parts of my life.
+      </p>
+
+      <p>
+        22 July 2025 wasn't just a date.
+        It became the first page of us.
+      </p>
+
+    </div>
+
+    <div class="letter-sign">
+      Always,<br>
+      <em>Pugu ♡</em>
+    </div>
+
+  </article>
+
+</div>
+
+  <!-- =========================================================
+     10 REASONS — WHY BUGU IS BUGU
+     ========================================================= -->
+
+<section class="chapter reasons-section" id="reasons">
+
+  <p class="eyebrow">06 / 10 REASONS</p>
+
+  <h2>
+    Why Bugu<br>
+    <em>is Bugu.</em>
+  </h2>
+
+  <p>
+    Ten little reasons.
+    Ten pieces of the person I love.
+  </p>
+
+
+  <!-- REASONS GRID -->
+
+  <div class="reasons-grid">
+
+
+    <!-- REASON 01 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(0)"
+      aria-label="Open reason one">
+
+      <span class="reason-number">
+        01
+      </span>
+
+      <span class="reason-icon">
+        ♡
+      </span>
+
+      <span class="reason-title">
+        Your Smile
+      </span>
+
+      <small>
+        THE ONE THAT CHANGES EVERYTHING
+      </small>
+
+    </button>
+
+
+    <!-- REASON 02 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(1)"
+      aria-label="Open reason two">
+
+      <span class="reason-number">
+        02
+      </span>
+
+      <span class="reason-icon">
+        ✦
+      </span>
+
+      <span class="reason-title">
+        Your Heart
+      </span>
+
+      <small>
+        SOFT IN ALL THE RIGHT WAYS
+      </small>
+
+    </button>
+
+
+    <!-- REASON 03 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(2)"
+      aria-label="Open reason three">
+
+      <span class="reason-number">
+        03
+      </span>
+
+      <span class="reason-icon">
+        ☾
+      </span>
+
+      <span class="reason-title">
+        Your Little Things
+      </span>
+
+      <small>
+        THE DETAILS I NOTICE
+      </small>
+
+    </button>
+
+
+    <!-- REASON 04 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(3)"
+      aria-label="Open reason four">
+
+      <span class="reason-number">
+        04
+      </span>
+
+      <span class="reason-icon">
+        ∞
+      </span>
+
+      <span class="reason-title">
+        Your Presence
+      </span>
+
+      <small>
+        JUST HAVING YOU HERE
+      </small>
+
+    </button>
+
+
+    <!-- REASON 05 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(4)"
+      aria-label="Open reason five">
+
+      <span class="reason-number">
+        05
+      </span>
+
+      <span class="reason-icon">
+        ✧
+      </span>
+
+      <span class="reason-title">
+        Your Laugh
+      </span>
+
+      <small>
+        MY FAVOURITE SOUND
+      </small>
+
+    </button>
+
+
+    <!-- REASON 06 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(5)"
+      aria-label="Open reason six">
+
+      <span class="reason-number">
+        06
+      </span>
+
+      <span class="reason-icon">
+        ♡
+      </span>
+
+      <span class="reason-title">
+        The Way You Care
+      </span>
+
+      <small>
+        EVEN WHEN YOU DON'T SAY IT
+      </small>
+
+    </button>
+
+
+    <!-- REASON 07 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(6)"
+      aria-label="Open reason seven">
+
+      <span class="reason-number">
+        07
+      </span>
+
+      <span class="reason-icon">
+        ✦
+      </span>
+
+      <span class="reason-title">
+        Our Chaos
+      </span>
+
+      <small>
+        THE FUN KIND
+      </small>
+
+    </button>
+
+
+    <!-- REASON 08 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(7)"
+      aria-label="Open reason eight">
+
+      <span class="reason-number">
+        08
+      </span>
+
+      <span class="reason-icon">
+        ☁
+      </span>
+
+      <span class="reason-title">
+        Your Comfort
+      </span>
+
+      <small>
+        FEELS A LITTLE LIKE HOME
+      </small>
+
+    </button>
+
+
+    <!-- REASON 09 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(8)"
+      aria-label="Open reason nine">
+
+      <span class="reason-number">
+        09
+      </span>
+
+      <span class="reason-icon">
+        ✧
+      </span>
+
+      <span class="reason-title">
+        The Way We Became Us
+      </span>
+
+      <small>
+        ONE MOMENT AT A TIME
+      </small>
+
+    </button>
+
+
+    <!-- REASON 10 -->
+
+    <button
+      class="reason-card"
+      onclick="openReason(9)"
+      aria-label="Open reason ten">
+
+      <span class="reason-number">
+        10
+      </span>
+
+      <span class="reason-icon">
+        ♡
+      </span>
+
+      <span class="reason-title">
+        Simply You
+      </span>
+
+      <small>
+        THE REAL REASON
+      </small>
+
+    </button>
+
+
+  </div>
+
+
+  <p class="reasons-hint">
+    Tap a reason to open it
+  </p>
+
+
+  <button
+    class="next"
+    onclick="go('polaroid')">
+
+    There's one more thing → 
+
+  </button>
+
+</section>
+
+
+<!-- =========================================================
+     REASON LETTER VIEWER
+     ========================================================= -->
+
+<div
+  id="reasonViewer"
+  class="reason-viewer"
+  aria-hidden="true">
+
+  <div class="reason-backdrop"></div>
+
+
+  <article
+    class="reason-letter"
+    role="dialog"
+    aria-modal="true">
+
+
+    <div class="reason-letter-top">
+
+      <span id="reasonViewerNumber">
+        REASON 01
+      </span>
+
+      <button
+        class="reason-close"
+        onclick="closeReason()"
+        aria-label="Close reason">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="reason-big-icon"
+      id="reasonViewerIcon">
+
+      ♡
+
+    </div>
+
+
+    <p
+      class="reason-label"
+      id="reasonViewerLabel">
+
+      YOUR SMILE
+
+    </p>
+
+
+    <h3 id="reasonViewerTitle">
+
+      Your smile.
+
+    </h3>
+
+
+    <div
+      class="reason-body"
+      id="reasonViewerBody">
+
+      <p>
+        Because somehow your smile can make
+        an ordinary moment feel completely different.
+      </p>
+
+      <p>
+        And honestly, I could never get tired
+        of seeing it.
+      </p>
+
+    </div>
+
+
+    <div class="reason-sign">
+
+      One of my favourite things about you.<br>
+
+      <em>— Pugu ♡</em>
+
+    </div>
+
+
+  </article>
+
+</div>
+  
+<section class="chapter cinematic" id="polaroid">
+
+  <p class="eyebrow">07 / ONE PERFECT FRAME</p>
+
+  <h2>
+    Freeze<br>
+    <em>this moment.</em>
+  </h2>
+
+  <p class="perfect-frame-intro">
+    Choose the one picture you want to keep here.
+    It will stay saved on this device every time the film is opened.
+  </p>
+
+  <div class="polaroid" id="perfectFrame">
+
+    <label>
+      <input
+        type="file"
+        accept="image/*"
+        onchange="polaroid(this)"
+      >
+
+      <span id="perfectFramePrompt">
+        ADD YOUR FAVOURITE PHOTO
+      </span>
+    </label>
+
+    <p>
+      “If I could keep one feeling forever…”
+    </p>
+
+    <small>
+      BUGU ♡ PUGU · 2026 · SAVED ON THIS DEVICE
+    </small>
+
+  </div>
+
+  <button class="next" onclick="go('moon')">
+    Continue the film →
+  </button>
+
+</section>
+
+<section class="chapter moon-scene" id="moon">
+  <div class="moon-glow"></div>
+  <p class="eyebrow">08 / THE NIGHT SKY</p>
+  <h2>Somewhere between<br><em>then & now.</em></h2>
+  <p>Drag the moonlight across the sky and reveal little messages.</p>
+  <div class="moon-stage" id="moonStage">
+
+    <!-- KEEP YOUR EXISTING NIGHT SKY HEADING + INTRO ABOVE/AROUND THIS -->
+    
+    <!-- STAR FIELD -->
+    <div class="night-stars" id="nightStars"></div>
+
+    <!-- SHOOTING STARS -->
+    <div class="shooting-star shooting-star-1"></div>
+    <div class="shooting-star shooting-star-2"></div>
+
+    <!-- MOON -->
+    <div
+        class="moon"
+        id="nightMoon"
+        onpointerdown="startMoon(event)"
+    >
+        <div class="moon-glow"></div>
+
+        <div class="moon-body">
+            <span class="moon-crater crater-one"></span>
+            <span class="moon-crater crater-two"></span>
+            <span class="moon-crater crater-three"></span>
+        </div>
+    </div>
+
+    <!-- DISCOVERY COUNTER -->
+    <div class="moon-counter" id="moonCounter">
+        <span id="moonFound">0</span> / 3
+    </div>
+
+    <!-- HIDDEN STARS -->
+    <button
+        class="hidden-star hidden-star-1"
+        id="hiddenStar1"
+        type="button"
+        data-message="Somehow, every beautiful memory became a little more beautiful because you were in it."
+    >✦</button>
+
+    <button
+        class="hidden-star hidden-star-2"
+        id="hiddenStar2"
+        type="button"
+        data-message="If I could freeze one feeling forever, it would be the feeling of having you beside me."
+    >✦</button>
+
+    <button
+        class="hidden-star hidden-star-3"
+        id="hiddenStar3"
+        type="button"
+        data-message="Out of all the people, places and moments in this huge world... somehow I found you."
+    >✦</button>
+
+    <!-- MESSAGE -->
+    <div
+        class="moon-message-overlay"
+        id="moonMessageOverlay"
+    >
+        <div class="moon-message-card">
+
+            <div class="message-star">✦</div>
+
+            <p id="moonMessageText"></p>
+
+            <span>tap anywhere to continue</span>
+
+        </div>
+    </div>
+
+    <!-- CONSTELLATION -->
+    <div
+        class="night-constellation"
+        id="nightConstellation"
+    >
+        <svg viewBox="0 0 300 300">
+
+            <path
+                class="constellation-line constellation-line-1"
+                d="M75 80 L150 145"
+            />
+
+            <path
+                class="constellation-line constellation-line-2"
+                d="M150 145 L225 80"
+            />
+
+            <path
+                class="constellation-line constellation-line-3"
+                d="M225 80 L150 220"
+            />
+
+            <path
+                class="constellation-line constellation-line-4"
+                d="M150 220 L75 80"
+            />
+
+        </svg>
+
+        <span class="constellation-star constellation-star-1"></span>
+        <span class="constellation-star constellation-star-2"></span>
+        <span class="constellation-star constellation-star-3"></span>
+        <span class="constellation-star constellation-star-4"></span>
+    </div>
+
+    <!-- FINAL REVEAL -->
+    <div
+        class="night-final"
+        id="nightFinal"
+    >
+        <p class="eyebrow">A LITTLE PIECE OF OUR SKY</p>
+
+        <h2>
+            Different stars.<br>
+            <em>Same sky.</em>
+        </h2>
+
+        <p>
+            No matter how big the sky gets,<br>
+            I'd still find my way back to you.
+        </p>
+
+        <span>— Pugu ♡</span>
+    </div>
+
+</div>
+  <button class="next moon-next" id="moonNext" type="button" onclick="go('gift')">
+  Open one last gift →
+</button>
+  </section>
+
+<section class="chapter gift-scene" id="gift">
+  <p class="eyebrow">09 / A LITTLE GIFT</p>
+  <h2>For the girl who<br><em>deserves everything.</em></h2>
+  <p>Tap the box. Slowly.</p>
+  <div class="giftbox" onclick="openGift()"><div class="lid">♡</div><div class="box">🎁</div></div>
+  <div id="giftMessage" class="glass gift-message">There is something waiting inside…</div>
+  <button id="giftNext" class="next hidden" onclick="go('capsule')">Continue →</button>
+</section>
+
+<section class="chapter" id="capsule"><p class="eyebrow">10 / MEMORY CAPSULE</p><h2>Tap a date.<br><em>Reveal a feeling.</em></h2>
+<div class="capsules">
+<button onclick="capsule(0)"><b>22.07</b><small>THE START</small></button>
+<button onclick="capsule(1)"><b>♡</b><small>THE LITTLE THINGS</small></button>
+<button onclick="capsule(2)"><b>NOW</b><small>THIS BIRTHDAY</small></button>
+</div><div id="capText" class="glass">Your memory is waiting.</div>
+<button class="next" onclick="go('constellation')">Follow the stars →</button></section>
+
+<section class="chapter" id="constellation"><p class="eyebrow">11 / OUR CONSTELLATION</p><h2>Find the stars<br><em>in order.</em></h2>
+<div class="sky">
+ 
+  <button class="star s1" onclick="star(1)">✦</button><button class="star s2" onclick="star(2)">✦</button><button class="star s3" onclick="star(3)">✦</button><button class="star s4" onclick="star(4)">✦</button><button class="star s5" onclick="star(5)">✦</button></div>
+<div id="starmsg" class="glass">Star 1 is waiting ✦</div>
+ <!-- AFTER ALL 5 STARS REVEAL -->
+
+<div
+    id="constellationComplete"
+    class="constellation-complete"
+>
+
+    <div
+        id="constellationHeart"
+        class="constellation-heart"
+    >
+        ♡
+    </div>
+
+    <p
+        id="constellationLine1"
+        class="constellation-reveal"
+    >
+        You found them all.
+    </p>
+
+    <p
+        id="constellationLine2"
+        class="constellation-reveal"
+    >
+        But there's one thing<br>
+        the stars can't tell you...
+    </p>
+
+    <p
+        id="constellationLine3"
+        class="constellation-reveal"
+    >
+        So I'll tell you myself.
+    </p>
+
+    <div
+        id="constellationPersonal"
+        class="constellation-personal-message"
+    >
+        Out of all the stars in this enormous sky,
+        somehow I got lucky enough to find you.
+    </div>
+
+    <span
+        id="constellationSignature"
+        class="constellation-signature"
+    >
+        — Pugu ♡
+    </span>
+
+</div>
+  <button class="next" onclick="go('wish')">Make a wish →</button></section>
+
+<section class="chapter" id="wish"><p class="eyebrow">12 / THE BIRTHDAY WISH</p><h2>One breath.<br><em>One secret wish.</em></h2><p>Tap the cake, close your eyes, and make it yours.</p>
+<div class="cake" onclick="wish()"><div class="flames"><i></i><i></i><i></i></div>🎂</div><div id="wishmsg" class="accent">The candles are glowing…</div>
+<button class="next" onclick="go('voice')">Listen to Pugu →</button></section>
+
+<section class="chapter" id="voice">
+
+  <p class="eyebrow">13 / FROM PUGU</p>
+
+  <h2>
+    A voice<br>
+    <em>just for you.</em>
+  </h2>
+
+  <div class="audio voice-note-card">
+
+    <div class="disc" id="voiceDisc">
+      ♡
+    </div>
+
+    <div>
+      <b>Birthday message</b>
+
+      <small id="voiceStatus">
+        A little birthday wish from Pugu ♡
+      </small>
+    </div>
+
+    <!-- SAVED VOICE NOTE -->
+    <audio id="player" preload="metadata">
+  <source src="audio/voice-note.m4a" type="audio/mp4">
+</audio>
+
+<!-- VOICE NOTE PROGRESS -->
+<div class="voice-progress-wrap">
+
+  <div class="voice-time-row">
+    <span id="voiceCurrentTime">0:00</span>
+    <span id="voiceDuration">0:00</span>
+  </div>
+
+  <input
+    type="range"
+    id="voiceProgress"
+    class="voice-progress"
+    min="0"
+    max="100"
+    value="0"
+    step="0.1"
+    aria-label="Voice note progress"
+  >
+
+</div>
+
+<!-- PLAY / PAUSE -->
+<button
+  type="button"
+  id="voicePlayButton"
+  class="voice-play-button"
+  onclick="toggleVoiceNote()"
+>
+  <span id="voicePlayIcon">▶</span>
+  <span id="voicePlayText">PLAY MY VOICE NOTE</span>
+</button>
+
+  </div>
+
+  <button class="next" onclick="go('letter')">
+    Open the letter →
+  </button>
+
+</section>
+  
+<section class="chapter" id="letter"><p class="eyebrow">14 / HANDWRITTEN</p><h2>For Bugu,<br><em>from Pugu.</em></h2>
+<div class="envelope" onclick="openLetter()">💌<span>♡</span></div><article id="letterbox" class="letter hidden">
+<p class="script">My Bugu,</p><p>Happy birthday to the person who deserves a day as lovely as the little moments you've brought into my life.</p><p>I hope this year gives you reasons to smile when nobody is watching, courage for every dream, peace on the difficult days, and a thousand tiny moments worth saving.</p><p>Thank you for being part of my story since 22 July 2025. Here's to every chapter we haven't written yet.</p><p class="sign">Always your Pugu ♡</p></article>
+<button class="next" onclick="go('secret')">There's a secret left →</button></section>
+
+<section class="chapter" id="secret"><p class="eyebrow">15 / EASTER EGG</p><h2>One last door<br><em>for Bugu only.</em></h2><p>Try a nickname or our special date.</p>
+<div class="unlock"><input id="pass" placeholder="secret"><button onclick="unlock()">OPEN</button></div>
+<div id="secretbox" class="glass hidden"><h3>♡ You found the hidden scene.</h3><p>If you are reading this, remember: the best part of this whole website is the person it was made for.</p><p><b>Bugu, you are loved.</b></p></div>
+<button id="finalBtn" class="next hidden" onclick="go('finale')">THE FINAL SCENE ✨</button></section>
+
+<section class="finale" id="finale"><div class="fireworks"></div><div class="finalcontent">
+<p class="eyebrow">05 · 09 · 2026</p><h2>This is not<br><em>the end.</em></h2><p>It's just the end of one birthday chapter.</p><div class="bigcat">🐱</div><p class="script">Happy Birthday, Bugu ♡</p><p class="tiny">— from Pugu</p><div class="final-credits">22.07.2025 · THE BEGINNING &nbsp; • &nbsp; 05.09.2026 · THIS CHAPTER</div><button class="restart" onclick="go('hero')">↻ REPLAY</button></div></section>
+<script src="script.js"></script>
+
+<button class="back-button" onclick="window.location.href='../birthday2.html'">
+    ← Back
+</button>
+</body>
+</html>
