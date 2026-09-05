@@ -1,0 +1,24 @@
+{
+  "name": "Our Complete Journey 💗",
+  "short_name": "Journey💗",
+  "start_url": "/Our_Complete_Journey_Together/index.html",
+  "scope": "/Our_Complete_Journey_Together/",
+  "display": "standalone",
+  "background_color": "#ffe0f3",
+  "theme_color": "#ff89c3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
