@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Story of Us ❤️</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Playfair+Display:wght@500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#fff0f5;
+    font-family:'Nunito',sans-serif;
+    overflow:hidden;
+}
+
+/* STORYBOOK FRAME */
+#container{
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+/* PAGE SECTIONS */
+section{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:40px 20px;
+    overflow-y:auto;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.6s ease-in-out;
+}
+
+/* Visible page (fade only) */
+section.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* NAV BUTTONS */
+.nav-buttons{
+    width:100%;
+    text-align:center;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 22px;
+    margin:8px;
+    border-radius:25px;
+    background:#c87aa0;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    cursor:pointer;
+    font-size:1.05rem;
+}
+.btn:hover{
+    background:#b2658d;
+}
+
+/* TITLES */
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:2.7rem;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    font-family:'Playfair Display', serif;
+    font-size:1.35rem;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* PARAGRAPHS */
+p{
+    font-size:1.2rem;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+/* SPECIAL BLOCK */
+.block{
+    background:#fff3f8;
+    padding:18px;
+    border-left:6px solid #d36ba0;
+    border-radius:12px;
+    margin:25px 0;
+}
+
+/* QUOTE */
+.quote{
+    font-family:'Playfair Display', serif;
+    font-size:1.7rem;
+    text-align:center;
+    margin:25px 0 35px 0;
+    padding:10px 0;
+}
+  /* THEMES FOR EACH PAGE */
+#p1{ background:linear-gradient(135deg,#fef5f7,#fde9ef,#fff3f7); color:#624754; }
+#p2{ background:#f1e8dc; color:#4a3b30; font-family:'Crimson Text',serif;}
+#p3{ background:#fff4f6; color:#6a505a;}
+#p4{ background:linear-gradient(135deg,#faf5ef,#f3ece2,#f9f1e8); color:#6a5a4e;}
+#p5{ background:linear-gradient(135deg,#fff4f6,#fdeff3,#fff7f8); color:#624b50;}
+#p6{ background:linear-gradient(135deg,#0e1321,#1a1f33,#121726); color:#eee8ff;}
+#p7{ background:linear-gradient(135deg,#fffdfc,#fff7f8,#fff3f6); color:#6c5a5f;}
+#p8{ background:linear-gradient(135deg,#f7f1f5,#f4edf7,#f5e9f2); color:#5d4a52;}
+
+/* Scroll beautify */
+section::-webkit-scrollbar{
+    width:6px;
+}
+section::-webkit-scrollbar-thumb{
+    background:#c88dad;
+    border-radius:4px;
+}
+
+
+#p9 {
+    margin:0;
+    background:linear-gradient(135deg,#fff5f7,#fbeff3,#fff8f5);
+    font-family:'Nunito',sans-serif;
+    color:#5a4a52;
+    padding-bottom:70px;
+}
+
+#p9 .container{
+    width:92%;
+    max-width:850px;
+    margin:45px auto;
+    padding:40px;
+    background:#ffffffcc;
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    border:2px solid #f4d0da;
+    box-shadow:0 10px 35px rgba(200,150,160,0.25);
+    position:relative;
+}
+
+/* Decorative hearts */
+#p9 .container::before{
+    content:"💗";
+    position:absolute;
+    font-size:2.8rem;
+    opacity:0.22;
+    top:15px;
+    right:20px;
+    animation:float1 6s infinite ease-in-out;
+}
+#p9 .container::after{
+    content:"💞";
+    position:absolute;
+    font-size:2.5rem;
+    opacity:0.18;
+    bottom:15px;
+    left:20px;
+    animation:float2 7s infinite ease-in-out;
+}
+
+@keyframes float1{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(20px);}
+    100%{transform:translateY(0);}
+}
+@keyframes float2{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+#p9 h1{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    text-align:center;
+    color:#d15f8a;
+    margin-bottom:25px;
+}
+
+#p9 .subtitle{
+    font-family:'Playfair Display',serif;
+    font-size:1.5rem;
+    text-align:center;
+    color:#b04c72;
+    margin-bottom:35px;
+}
+
+#p9 p{
+    font-size:1.2rem;
+    line-height:1.9;
+    margin-bottom:22px;
+}
+
+#p9 .section{
+    background:#fdeaf0;
+    padding:20px;
+    border-left:6px solid #d36a8e;
+    border-radius:20px;
+    margin:28px 0;
+    color:#8a586a;
+}
+
+#p9 .quote{
+    font-family:'Playfair Display',serif;
+    font-size:1.9rem;
+    text-align:center;
+    color:#c1517e;
+    margin:35px 0;
+}
+
+#p9 .signature{
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    margin-top:30px;
+    color:#b04c72;
+    text-align:center;
+}
+
+#p9 .back{
+    display:block;
+    width:150px;
+    text-align:center;
+    margin:45px auto 0;
+    padding:12px 0;
+    background:#d97aa2;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:600;
+}
+#p9 .back:hover{
+    background:#c05f89;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<!-- PAGE 1 — SORRY -->
+<section id="p1" class="active">
+    <h1>I’m Sorry, My Bugu 💗</h1>
+    <div class="subtitle">The day that changed us.</div>
+
+    <p>
+        My love…  
+        This apology comes from the softest, calmest, most honest place inside me.
+        Not from fear — but from understanding.  
+        From the lessons I learned the hard way.
+    </p>
+
+    <div class="block">
+        <b>10 January 2026</b>  
+        A day that hurt both of us,  
+        a day I will never let repeat.
+    </div>
+
+    <p>
+        I didn’t hurt you because I loved you less —  
+        I hurt you because I didn’t know how to hold your heart the right way back then.
+    </p>
+
+    <p>
+        You deserved clarity, tenderness, and patience.  
+        And I am learning to give you all of that —  
+        because losing you, even for a moment,  
+        showed me what “forever” truly means.
+    </p>
+
+    <div class="nav-buttons">
+    <a class="btn" href="sorry_menu.html"> ← Back </a>
+    <span class="btn" onclick="go(2)">Next →</span>
+</div>
+</section>
+
+<!-- PAGE 2 — WHY I BROKE -->
+<section id="p2">
+    <h1>Why I Broke… 💔</h1>
+    <div class="subtitle">The truth I never said properly.</div>
+
+    <p>
+        My Bugu…  
+        This is the honesty I once failed to give you —  
+        not because I wanted to hide it,  
+        but because I didn’t know how to say it.
+    </p>
+
+    <div class="quote">
+        “I didn’t break because I loved you less.  
+        I broke because I didn’t know how to carry a love that big.”
+    </div>
+
+    <p>
+        I wasn’t bored.  
+        I wasn’t losing feelings.  
+        I wasn’t tired of us.  
+    </p>
+
+    <p>
+        I was overwhelmed.  
+        By how deeply I felt for you.  
+        By how much I feared hurting you.  
+        By how scared I was of being the reason you cried.
+    </p>
+
+    <div class="block">
+        Instead of talking, I shut down.  
+        Instead of holding you, I let go.  
+        Instead of trusting us, I doubted myself.
+    </div>
+
+    <p>
+        I made a wound we both had to heal from.  
+        A wound I regret more than anything.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(1)">← Back</span>
+        <span class="btn" onclick="go(3)">Next →</span>
+    </div>
+</section>
+
+<!-- PAGE 3 — WHY YOU MATTER -->
+<section id="p3">
+    <h1>Why You Still Matter 💗</h1>
+    <div class="subtitle">The truth your heart deserves to hear.</div>
+
+    <p>
+        Even after everything, your presence never faded.  
+        Your warmth stayed.  
+        Your love stayed.  
+        A part of you stayed with me — always.
+    </p>
+
+    <div class="quote">
+        “Some people don’t leave your heart,  
+        even when life pulls them away for a moment.”
+    </div>
+
+    <p>
+        You matter because you were my calm  
+        in days that felt like storms.  
+        You mattered in the beginning,  
+        you mattered through the pain,  
+        and you matter now — more deeply than ever.
+    </p>
+
+    <div class="block">
+        You matter because you loved me gently.  
+        Because you understood me when I didn’t understand myself.  
+        Because your heart has always known how to hold mine.
+    </div>
+
+    <p>
+        And nothing — not fear, not time, not mistakes —  
+        could ever erase the place you have in me.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(2)">← Back</span>
+        <span class="btn" onclick="go(4)">Next →</span>
+    </div>
+</section>
+  <!-- PAGE 4 — PROMISE -->
+<section id="p4">
+    <h1>My Promise to You 💍</h1>
+    <div class="subtitle">A vow shaped by everything we learned.</div>
+
+    <p>
+        My Bugu…  
+        We walked through pain we didn’t deserve,  
+        but we also grew into a love that’s stronger, calmer, and wiser.
+    </p>
+
+    <div class="quote">
+        “This time, I love you with understanding.”
+    </div>
+
+    <p>
+        I know what your heart needs now.  
+        I know how to hold you gently.  
+        I know that forever isn’t a feeling —  
+        it’s a choice we make every day.
+    </p>
+
+    <div class="block">
+        I promise to speak instead of shutting down.  
+        I promise to listen instead of assuming.  
+        I promise to choose you even on days that feel hard.
+    </div>
+
+    <p>
+        Our story didn’t break.  
+        It became real.  
+        It became ours.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(3)">← Back</span>
+        <span class="btn" onclick="go(5)">Next →</span>
+    </div>
+</section>
+
+<!-- PAGE 5 — FOREVER WITH YOU -->
+<section id="p5">
+    <h1>Forever With You 💞</h1>
+    <div class="subtitle">The future my heart always chooses.</div>
+
+    <p>
+        Forever isn’t a poetic word to me anymore.  
+        It’s the direction my heart moves every time I think of us.
+    </p>
+
+    <div class="quote">
+        “My future feels like your hand in mine.”
+    </div>
+
+    <p>
+        I want mornings with you — soft sunlight, quiet laughter.  
+        I want nights with you — tired hugs, warm comfort.  
+        I want seasons, years, decades…  
+        all with you.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(4)">← Back</span>
+        <span class="btn" onclick="go(6)">Next →</span>
+    </div>
+</section>
+
+<!-- PAGE 6 — DREAMS I SEE WITH YOU -->
+<section id="p6">
+    <h1>Dreams I See With You 🌙</h1>
+    <div class="subtitle">Every dream has your name in it.</div>
+
+    <p>
+        My future doesn’t look like a place —  
+        it looks like a life built softly with you.
+    </p>
+
+    <div class="quote">
+        “You’re the dream my heart keeps walking toward.”
+    </div>
+
+    <p>
+        I dream of a home filled with your voice.  
+        I dream of a life shaped by your smile.  
+        I dream of old age where your hand is still in mine.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(5)">← Back</span>
+        <span class="btn" onclick="go(7)">Next →</span>
+    </div>
+</section>
+
+<!-- PAGE 7 — LETTER TO OUR FUTURE -->
+<section id="p7">
+    <h1>Letter To Our Future 💌</h1>
+    <div class="subtitle">Where our tomorrows begin.</div>
+
+    <p>
+        One day, we’ll look back at this moment  
+        and smile knowing this is where everything changed —  
+        where love became clearer, calmer, deeper.
+    </p>
+
+    <div class="quote">
+        “Our future isn’t a destination.  
+        It’s something we build with every choice.”
+    </div>
+
+    <p>
+        I want years with you — not perfect, but real.  
+        Not fast, but steady.  
+        Not loud, but full of meaning.
+    </p>
+
+    <div class="nav-buttons">
+        <span class="btn" onclick="go(6)">← Back</span>
+        <span class="btn" onclick="go(8)">Next →</span>
+   
+    </div>
+</section>
+
+<!-- PAGE 8 — FORGIVE ME, THANK YOU -->
+<section id="p8">
+    <h1>Forgive Me, Thank You for Staying 🕊</h1>
+    <div class="subtitle">From the quietest part of my heart.</div>
+
+    <p>
+        I made mistakes — painful ones.  
+        But your heart didn’t walk away from me.  
+        You stayed.  
+        You held on.  
+        You believed in us when I didn’t know how.
+    </p>
+
+    <div class="quote">
+        “Thank you for giving me space to grow  
+        and a heart to come home to.”
+    </div>
+
+    <p>
+        I love you differently now —  
+        with clarity, with patience,  
+        with a maturity shaped by the lessons we lived through.
+    </p>
+<div class="nav-buttons">
+        <span class="btn" onclick="go(7)">← Back</span>
+        <span class="btn" onclick="go(9)">Next →</span>
+   
+    </div>
+</section>
+
+
+<!-- PAGE 9 — TOGETHER AGAIN -->
+<section id="p9">
+    <div class="container">
+        <h1>We’re Together Again 💗</h1>
+<div class="subtitle">And this time… our love is wiser, softer, stronger.</div>
+
+<p>
+    My Bugu,  
+    life brought us through a chapter we never expected —  
+    a chapter full of silence, hurt, distance, and lessons.  
+    But somehow, beautifully, softly…  
+    we found our way back to each other.
+</p>
+
+<div class="quote">
+    “Some love stories don’t restart.  
+    Ours rebloomed.”
+</div>
+
+<p>
+    Coming back to you didn’t feel like repeating the past.  
+    It felt like rediscovering the part of my heart  
+    that always knew where it belonged.
+</p>
+
+<div class="section">
+    We’re not who we were before.  
+    We’re gentler now.  
+    We communicate.  
+    We understand.  
+    We choose each other — consciously, calmly, completely.
+</div>
+
+<p>
+    This new chapter isn’t about fixing what broke.  
+    It’s about building something new  
+    with everything we learned.
+</p>
+
+<div class="quote">
+    “I don’t want the old us back.  
+    I want the stronger, wiser, healed us we’ve become.”
+</div>
+
+<p>
+    I love you differently now —  
+    with clarity, with patience, with maturity.  
+    With a heart that knows what losing you feels like  
+    and never wants to feel that again.
+</p>
+
+<p class="signature">
+    Forever yours,  
+    <br>Pugu 💗
+</p>
+        <div class="nav-buttons">
+            <span class="btn" onclick="go(8)">← Back</span>
+            <a class="btn" href="sorry_menu.html">Back to Home</a>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<!-- SCRIPT FOR PAGE SWITCHING -->
+<script>
+let current = 1;
+
+function go(page){
+    document.getElementById("p"+current).classList.remove("active");
+    document.getElementById("p"+page).classList.add("active");
+    current = page;
+}
+</script>
+
+</body>
+</html>
