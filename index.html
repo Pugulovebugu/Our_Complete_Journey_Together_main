@@ -178,9 +178,49 @@ h1 em{
 
 /* install */
 #installBanner{
- display:none;width:min(100%,370px);margin:30px auto 0;padding:13px 21px;border-radius:18px;
- border:1px solid rgba(255,255,255,.84);background:linear-gradient(100deg,#c65b8e,#826bc8);
- color:#fff;font-size:.75rem;font-weight:700;box-shadow:0 15px 38px rgba(126,71,112,.20);cursor:pointer;
+  display:none;
+  width:max-content;
+  max-width:90%;
+  margin:0 auto 14px;
+  padding:11px 22px;
+
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:18px;
+
+  background:linear-gradient(
+    110deg,
+    rgba(198,91,142,.92),
+    rgba(130,107,200,.92)
+  );
+
+  color:#fff;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.3px;
+
+  box-shadow:
+    0 12px 32px rgba(126,71,112,.18),
+    inset 0 1px 0 rgba(255,255,255,.55);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  cursor:pointer;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+#installBanner:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 17px 38px rgba(126,71,112,.25),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+#installBanner:active{
+  transform:scale(.97);
 }
 
 /* floating hearts */
@@ -235,7 +275,7 @@ h1 em{
     <div class="art-core">♡</div>
   </div>
 </section>
-
+<div id="installBanner">💗 Install our little space — Tap Here</div>
   <section class="counter-wrap" aria-label="Live relationship counter">
     <div class="counter-heading">Together for...</div>
     <div class="counter">
@@ -274,8 +314,6 @@ h1 em{
       <span class="card-desc">A gentle corner for the harder days.</span>
     </a>
   </nav>
-
-  <div id="installBanner">💗 Install our little space — Tap Here</div>
 </main>
 
 <script>
