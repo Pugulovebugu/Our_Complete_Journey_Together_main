@@ -3,185 +3,351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Journey Together 💗</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
+<title>Our Complete Journey Together 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ff89c3">
+<meta name="theme-color" content="#f7dbe8">
 <link rel="icon" href="icon-192.png">
 
 <style>
-a { text-decoration: none; }
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;600;700&family=Parisienne&display=swap');
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#ffe0f3,#e9f0ff,#ffe9df);
-    background-size: 300% 300%;
-    animation: bgShift 14s infinite alternate;
-    overflow-x: hidden;
-    text-align: center;
+:root{
+ --ink:#3a3038;--muted:#8d7984;--pink:#c85a91;--violet:#8170c9;
+ --blue:#6fa0d8;--peach:#e8a078;--mint:#79bca9;
 }
-@keyframes bgShift { 
-  from {background-position:left} 
-  to {background-position:right}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;min-height:100vh;overflow-x:hidden;font-family:'DM Sans',sans-serif;color:var(--ink);
+ background:#f7f2f6;
+}
+body:before{
+ content:"";position:fixed;inset:-25%;z-index:-10;pointer-events:none;
+ background:
+ radial-gradient(circle at 12% 18%,rgba(255,132,190,.32),transparent 22%),
+ radial-gradient(circle at 85% 12%,rgba(130,116,224,.30),transparent 24%),
+ radial-gradient(circle at 91% 76%,rgba(99,174,226,.28),transparent 23%),
+ radial-gradient(circle at 22% 88%,rgba(255,180,119,.22),transparent 22%),
+ radial-gradient(circle at 50% 48%,rgba(255,255,255,.75),transparent 38%);
+ animation:aurora 20s ease-in-out infinite alternate;
+}
+body:after{
+ content:"";position:fixed;inset:0;z-index:-9;pointer-events:none;
+ background:linear-gradient(120deg,rgba(255,255,255,.45),transparent 45%,rgba(255,255,255,.25));
+}
+a{text-decoration:none;color:inherit}
+.page{width:min(100%,1140px);margin:auto;padding:20px 28px 72px;position:relative;z-index:1}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-3;filter:blur(4px)}
+.orb.one{width:260px;height:260px;left:-160px;top:18%;background:rgba(241,113,176,.16);animation:orb1 12s ease-in-out infinite}
+.orb.two{width:340px;height:340px;right:-200px;bottom:4%;background:rgba(111,143,222,.15);animation:orb2 15s ease-in-out infinite}
+
+/* top signature */
+.signature{
+ width:max-content;margin:4px auto 0;padding:8px 18px 5px;
+ position:relative;z-index:5;animation:signatureIn 1.2s .05s both;
+}
+.signature:before{
+ content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.62);
+ border-radius:30px;background:rgba(255,255,255,.22);backdrop-filter:blur(14px);
+ box-shadow:0 10px 30px rgba(84,51,73,.06);z-index:-1;
+}
+.signature-name{
+ font-family:'Parisienne',cursive;font-size:2.15rem;line-height:1;
+ color:#b64f83;letter-spacing:.5px;
+ text-shadow:0 3px 12px rgba(182,79,131,.15);
+}
+.signature-heart{font-family:serif;color:#d56b9d;margin:0 3px;font-size:1rem;vertical-align:middle}
+.signature-line{
+ width:78%;height:1px;margin:4px auto 0;
+ background:linear-gradient(90deg,transparent,#d28aaa,transparent);
 }
 
+/* hero */
+.hero{
+ min-height:56vh;display:grid;grid-template-columns:1.04fr .96fr;align-items:center;
+ gap:45px;padding:48px 12px 30px;
+}
+.hero-copy{animation:fadeLeft 1s .15s cubic-bezier(.2,.8,.2,1) both}
+.eyebrow{
+ display:flex;align-items:center;gap:10px;margin-bottom:18px;color:#a0788d;
+ font-size:.61rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;
+}
+.eyebrow:before{content:"";width:31px;height:1px;background:linear-gradient(90deg,#e17baa,#8270ca)}
 h1{
-    margin-top:45px;
-    font-size:3.2rem;
-    font-family:'Dancing Script',cursive;
-    color:#ff3f8f;
-    text-shadow:0 0 15px rgba(255,120,180,0.3);
+ margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,8.4vw,7.4rem);
+ line-height:.83;font-weight:600;letter-spacing:-2px;color:#352b32;
 }
-h2{
-    margin-top:-5px;
-    font-size:1.3rem;
-    color:#ff7ab3;
+h1 em{
+ font-style:italic;font-weight:500;
+ background:linear-gradient(90deg,#c64f8b,#7e6bc7,#689bd3);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+ background-size:200% auto;animation:gradientShift 7s ease-in-out infinite alternate;
 }
-
-.grid{
-    width:90%;
-    max-width:850px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:22px;
+.hero-sub{max-width:520px;margin:26px 0 0;color:var(--muted);font-size:.9rem;line-height:1.9}
+.heart-mark{
+ width:51px;height:51px;margin-top:27px;display:grid;place-items:center;border-radius:50%;
+ color:#bd5789;font-size:1.35rem;border:1px solid rgba(255,255,255,.8);
+ background:rgba(255,255,255,.34);backdrop-filter:blur(16px);
+ box-shadow:0 17px 42px rgba(89,57,77,.11),inset 0 1px 0 white;
+ animation:heartPulse 3.6s ease-in-out infinite;
 }
 
-.btn{
-    background:rgba(255,255,255,0.78);
-    border:2px solid #ffd7ea;
-    padding:24px 10px;
-    border-radius:22px;
-    font-weight:600;
-    font-size:1.3rem;
-    color:#444;
-    box-shadow:0 8px 22px rgba(255,120,180,0.25);
-    transition:.3s ease;
+/* animated glass flower/orbit */
+.hero-art{
+ width:min(100%,390px);aspect-ratio:1;margin:auto;position:relative;display:grid;place-items:center;
+ animation:fadeRight 1.15s .25s cubic-bezier(.2,.8,.2,1) both;
 }
-.btn:hover{
-    background:white;
-    transform:translateY(-6px) scale(1.05);
-    box-shadow:0 12px 28px rgba(255,120,170,0.35);
-    color:#ff4f9a;
+.hero-art:before{
+ content:"";position:absolute;inset:7%;border-radius:50%;
+ background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.12));
+ border:1px solid rgba(255,255,255,.78);
+ box-shadow:inset 0 1px 0 white,0 30px 80px rgba(78,55,88,.13);
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
 }
+.hero-art .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.72)}
+.ring.r1{inset:1%;border-top-color:#e681ae;border-right-color:#8370c9;animation:spin 19s linear infinite}
+.ring.r2{inset:10%;border-bottom-color:#70a7db;border-left-color:#e5a27b;animation:spin 13s linear infinite reverse}
+.ring.r3{inset:21%;border-style:dashed;border-color:rgba(190,87,140,.25);animation:spin 26s linear infinite}
+.art-core{
+ width:37%;height:37%;border-radius:50%;display:grid;place-items:center;z-index:2;
+ background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(247,214,230,.55));
+ border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 62px rgba(104,61,93,.18);
+ color:#c25389;font-size:2.4rem;animation:coreFloat 4.5s ease-in-out infinite;
+}
+.orbit-dot{position:absolute;width:10px;height:10px;border-radius:50%;z-index:3;box-shadow:0 0 0 7px rgba(255,255,255,.2),0 0 20px currentColor}
+.dot1{top:7%;left:50%;background:#e67dab;color:#e67dab}.dot2{right:6%;top:47%;background:#79a7d8;color:#79a7d8}.dot3{bottom:8%;left:25%;background:#e0a07b;color:#e0a07b}
 
-/* Hearts */
-.heart{
-    position:fixed;
-    bottom:-20px;
-    color:#ff74bb;
-    opacity:.8;
-    animation:floatUp 7s linear infinite;
-    z-index:-1;
+/* counter */
+.counter-wrap{width:min(100%,830px);margin:2px auto 58px;animation:fadeUp 1s .4s both}
+.counter-heading{margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:#a4517c}
+.counter{
+ display:flex;padding:6px;border:1px solid rgba(255,255,255,.8);border-radius:22px;
+ background:rgba(255,255,255,.30);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+ box-shadow:0 18px 48px rgba(72,49,65,.08),inset 0 1px 0 white;
 }
-@keyframes floatUp{
-    from{transform:translateY(0) scale(1)}
-    to{transform:translateY(-110vh) scale(1.5);opacity:0}
-}
+.unit{flex:1;min-width:0;padding:14px 6px;position:relative}
+.unit:not(:last-child):after{content:"";position:absolute;right:0;top:22%;height:56%;width:1px;background:linear-gradient(transparent,rgba(154,92,126,.28),transparent)}
+.number{font-variant-numeric:tabular-nums;font-size:clamp(1.18rem,3.4vw,1.9rem);font-weight:600;letter-spacing:1px;color:#3e333a}
+.label{margin-top:6px;font-size:.5rem;letter-spacing:1.65px;text-transform:uppercase;color:#9d8291;font-weight:700}
 
-/* Sparkles */
-.sparkle{
-    position:fixed;
-    width:10px;
-    height:10px;
-    background:#ffb6d9;
-    border-radius:50%;
-    pointer-events:none;
-    animation:sparkleFade .8s linear forwards;
+/* cards */
+.section-kicker{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 19px;color:#9e7b8f;font-size:.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+.section-kicker:before,.section-kicker:after{content:"";width:45px;height:1px;background:linear-gradient(90deg,transparent,#bc8aa3)}
+.section-kicker:after{background:linear-gradient(90deg,#bc8aa3,transparent)}
+.grid{width:100%;max-width:920px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{
+ position:relative;grid-column:span 2;min-height:185px;padding:24px;
+ display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left;
+ overflow:hidden;border:1px solid rgba(255,255,255,.76);border-radius:26px;
+ background:linear-gradient(135deg,rgba(255,255,255,.50),rgba(255,255,255,.23));
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+ box-shadow:0 18px 46px rgba(72,49,65,.075),inset 0 1px 0 white;
+ opacity:0;animation:cardIn .85s cubic-bezier(.2,.8,.2,1) forwards;
+ transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s,background .55s,border-color .55s;
 }
-@keyframes sparkleFade{
-    from{opacity:1;transform:scale(1)}
-    to{opacity:0;transform:scale(2.2)}
+.card:nth-child(1){animation-delay:.55s}.card:nth-child(2){animation-delay:.64s}.card:nth-child(3){animation-delay:.73s}.card:nth-child(4){animation-delay:.82s}.card:nth-child(5){animation-delay:.91s}
+.card:nth-child(4){grid-column:2/span 2}.card:nth-child(5){grid-column:4/span 2}
+.card:before{
+ content:"";position:absolute;inset:-80%;
+ background:linear-gradient(105deg,transparent 46%,rgba(255,255,255,.65) 50%,transparent 54%);
+ transform:translateX(-38%) rotate(10deg);transition:transform 1s ease;pointer-events:none;
 }
+.card:after{
+ content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-70px;bottom:-70px;
+ background:linear-gradient(135deg,rgba(238,123,174,.20),rgba(126,119,213,.12));
+ transition:transform .6s ease;
+}
+.card:hover{transform:translateY(-10px) scale(1.018);box-shadow:0 30px 68px rgba(72,49,65,.14),inset 0 1px 0 white;border-color:rgba(255,255,255,.95)}
+.card:hover:before{transform:translateX(38%) rotate(10deg)}.card:hover:after{transform:scale(1.45)}
+.card>*{position:relative;z-index:1}
+.card-icon{
+ width:44px;height:44px;border-radius:14px;display:grid;place-items:center;margin-bottom:auto;
+ border:1px solid rgba(255,255,255,.84);box-shadow:0 9px 22px rgba(94,64,82,.07);
+ background:linear-gradient(135deg,rgba(255,225,240,.88),rgba(225,219,250,.68));
+ font-size:1rem;transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+.card:nth-child(2) .card-icon{background:linear-gradient(135deg,rgba(222,237,255,.9),rgba(229,220,249,.75))}
+.card:nth-child(3) .card-icon{background:linear-gradient(135deg,rgba(255,238,215,.9),rgba(255,216,235,.72))}
+.card:nth-child(4) .card-icon{background:linear-gradient(135deg,rgba(219,246,237,.9),rgba(220,229,255,.72))}
+.card:nth-child(5) .card-icon{background:linear-gradient(135deg,rgba(255,222,237,.9),rgba(241,219,249,.72))}
+.card:hover .card-icon{transform:translateY(-5px) rotate(-6deg) scale(1.09)}
+.card-title{margin-top:25px;font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:#493941}
+.card-desc{margin-top:3px;font-size:.68rem;line-height:1.55;color:#97818c}
+.arrow{position:absolute;right:19px;top:18px;color:#ae638b;transition:.45s}.card:hover .arrow{transform:translate(5px,-5px)}
 
-/* Install Banner */
+/* install */
 #installBanner{
-  display:none;
-  background:#ff8fc8;
-  color:white;
-  padding:14px 22px;
-  margin:20px auto;
-  width:80%;
-  max-width:350px;
-  border-radius:20px;
-  font-size:18px;
-  font-weight:600;
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
-  cursor:pointer;
+ display:none;width:min(100%,370px);margin:30px auto 0;padding:13px 21px;border-radius:18px;
+ border:1px solid rgba(255,255,255,.84);background:linear-gradient(100deg,#c65b8e,#826bc8);
+ color:#fff;font-size:.75rem;font-weight:700;box-shadow:0 15px 38px rgba(126,71,112,.20);cursor:pointer;
 }
+
+/* floating hearts */
+.heart{position:fixed;bottom:-25px;color:#d16e9d;opacity:0;animation:floatUp 11s linear forwards;z-index:0;pointer-events:none;filter:drop-shadow(0 4px 8px rgba(190,90,137,.14))}
+@keyframes aurora{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.09)}}
+@keyframes orb1{50%{transform:translate(42px,-22px) scale(1.08)}}
+@keyframes orb2{50%{transform:translate(-38px,18px) scale(.94)}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(28px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes signatureIn{from{opacity:0;transform:translateY(-12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes coreFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes heartPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes gradientShift{from{background-position:0% center}to{background-position:100% center}}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.8);opacity:0}12%{opacity:.22}100%{transform:translateY(-110vh) rotate(18deg) scale(1.25);opacity:0}}
+@media(max-width:760px){
+ .page{padding:13px 14px 48px}.signature{margin-top:3px;padding:7px 15px 4px}.signature-name{font-size:1.85rem}
+ .hero{min-height:auto;display:flex;text-align:center;padding:45px 3px 25px;gap:24px}
+ .hero-copy{padding:0;max-width:620px}.eyebrow{font-size:.52rem;letter-spacing:2.7px}.eyebrow:before{display:none}
+ h1{font-size:clamp(3.2rem,14vw,5rem);letter-spacing:-1.4px}
+ .hero-sub{font-size:.79rem;line-height:1.75;margin:20px auto 0}.heart-mark{margin:20px auto 0}
+ .hero-art{width:min(72vw,280px)}.counter-wrap{margin-bottom:40px}.counter{padding:2px}
+ .unit{padding:10px 2px}.number{font-size:1rem;letter-spacing:.2px}.label{font-size:.42rem;letter-spacing:.62px}
+ .grid{grid-template-columns:repeat(2,1fr);gap:11px}.card,.card:nth-child(4),.card:nth-child(5){grid-column:span 1}
+ .card{min-height:148px;padding:18px 16px;border-radius:20px}.card-icon{width:36px;height:36px;border-radius:11px}
+ .card-title{font-size:1.28rem;margin-top:18px}.card-desc{font-size:.61rem}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 
 <body>
+<div class="orb one"></div><div class="orb two"></div>
 
-<h1>💗 Our Complete Journey Together 💗</h1>
-<h2>A timeline of our love & memories ✨</h2>
+<main class="page">
+  <div class="signature" aria-label="Bugu Pugu">
+    <div class="signature-name">Bugu <span class="signature-heart">♥</span> Pugu</div>
+    <div class="signature-line"></div>
+  </div>
+  <section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">A little place for us</div>
+    <h1>Our <em>Complete</em><br>Journey Together</h1>
+    <p class="hero-sub">A private little corner for every chapter, every memory, and all the moments that became ours. ✨</p>
+    <div class="heart-mark">♡</div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <span class="orbit-dot dot1"></span><span class="orbit-dot dot2"></span><span class="orbit-dot dot3"></span>
+    <div class="art-core">♡</div>
+  </div>
+</section>
 
-<div id="installBanner">💗 Install App — Tap Here 💗</div>
+  <section class="counter-wrap" aria-label="Live relationship counter">
+    <div class="counter-heading">Together for...</div>
+    <div class="counter">
+      <div class="unit"><div class="number" id="relYears">0</div><div class="label">Years</div></div>
+      <div class="unit"><div class="number" id="relMonths">0</div><div class="label">Months</div></div>
+      <div class="unit"><div class="number" id="relDays">0</div><div class="label">Days</div></div>
+      <div class="unit"><div class="number" id="relTime">00:00:00</div><div class="label">Hours · Minutes · Seconds</div></div>
+    </div>
+  </section>
 
-<div class="grid">
-    <a class="btn" href="earlydays.html">💞 Early Days </a>
-    <a class="btn" href="anniversaries.html">🌙 Anniversaries</a>
-    <a class="btn" href="specialdays.html">🌸 Special Days</a>
-    <a class="btn" href="gallery.html">📷 Photo Gallery</a>
-    <a class="btn" href="emotional_support.html">💗 Emotional Support</a>
-</div>
+  <div class="section-kicker">Explore our story</div>
+  <nav class="grid">
+    <a class="card" href="earlydays.html">
+      <span class="arrow">↗</span><span class="card-icon">💞</span>
+      <span class="card-title">Early Days</span>
+      <span class="card-desc">Where our story quietly began.</span>
+    </a>
+    <a class="card" href="anniversaries.html">
+      <span class="arrow">↗</span><span class="card-icon">🌙</span>
+      <span class="card-title">Anniversaries</span>
+      <span class="card-desc">The milestones we've reached together.</span>
+    </a>
+    <a class="card" href="specialdays.html">
+      <span class="arrow">↗</span><span class="card-icon">🌸</span>
+      <span class="card-title">Special Days</span>
+      <span class="card-desc">Little dates that became big memories.</span>
+    </a>
+    <a class="card" href="gallery.html">
+      <span class="arrow">↗</span><span class="card-icon">📷</span>
+      <span class="card-title">Photo Gallery</span>
+      <span class="card-desc">A visual collection of our moments.</span>
+    </a>
+    <a class="card" href="emotional_support.html">
+      <span class="arrow">↗</span><span class="card-icon">💗</span>
+      <span class="card-title">Emotional Support</span>
+      <span class="card-desc">A gentle corner for the harder days.</span>
+    </a>
+  </nav>
+
+  <div id="installBanner">💗 Install our little space — Tap Here</div>
+</main>
 
 <script>
-// Floating Hearts
+// Live relationship counter — relationship began 22 July 2025.
+const relationshipStart = new Date(2025, 6, 22, 0, 0, 0);
+
+function updateRelationshipCounter(){
+  const now = new Date();
+  if(now < relationshipStart) return;
+
+  let years = now.getFullYear() - relationshipStart.getFullYear();
+  let months = now.getMonth() - relationshipStart.getMonth();
+
+  if(months < 0){ years--; months += 12; }
+
+  let cursor = new Date(relationshipStart);
+  cursor.setFullYear(cursor.getFullYear() + years);
+  cursor.setMonth(cursor.getMonth() + months);
+
+  if(cursor > now){
+    months--;
+    if(months < 0){ years--; months = 11; }
+    cursor = new Date(relationshipStart);
+    cursor.setFullYear(cursor.getFullYear() + years);
+    cursor.setMonth(cursor.getMonth() + months);
+  }
+
+  const diff = now - cursor;
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById("relYears").textContent = years;
+  document.getElementById("relMonths").textContent = months;
+  document.getElementById("relDays").textContent = days;
+  document.getElementById("relTime").textContent =
+    [hours,minutes,seconds].map(v=>String(v).padStart(2,"0")).join(":");
+}
+updateRelationshipCounter();
+setInterval(updateRelationshipCounter,1000);
+
+// Floating hearts
 setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💗";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(Math.random()*18+16)+"px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),7000);
-},900);
+  const h=document.createElement("div");
+  h.className="heart"; h.textContent="♡";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(Math.random()*13+13)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+},1400);
 
-// Sparkles (optimized)
-let lastSparkle = 0;
-document.addEventListener("mousemove", e=>{
-    const now = Date.now();
-    if(now - lastSparkle < 40) return; 
-    lastSparkle = now;
-
-    const s=document.createElement("div");
-    s.className="sparkle";
-    s.style.left=e.pageX+"px";
-    s.style.top=e.pageY+"px";
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),800);
-});
-
-// Install Banner PWA
+// PWA install banner
 let deferredPrompt;
-const banner = document.getElementById("installBanner");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  banner.style.display = "block";
+const banner=document.getElementById("installBanner");
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault(); deferredPrompt=e; banner.style.display="block";
 });
-
-banner.addEventListener("click", async () => {
-  banner.style.display = "none";
-  if (!deferredPrompt) return;
+banner.addEventListener("click",async()=>{
+  banner.style.display="none";
+  if(!deferredPrompt)return;
   deferredPrompt.prompt();
   await deferredPrompt.userChoice;
-  deferredPrompt = null;
+  deferredPrompt=null;
 });
 
-// Service Worker (fixed path)
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(() => console.log("Service Worker Registered"))
-    .catch(err => console.log("SW error:", err));
+// Service worker
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("service-worker.js")
+    .then(()=>console.log("Service Worker Registered"))
+    .catch(err=>console.log("SW error:",err));
 }
 </script>
-
 </body>
 </html>
