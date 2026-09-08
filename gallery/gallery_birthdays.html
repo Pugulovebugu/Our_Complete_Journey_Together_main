@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Gallery 🎂💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:25px;
+    background:linear-gradient(135deg,#ffe8f2,#fff1e6,#ffe7e8);
+    background-size:300% 300%;
+    animation:bgShift 12s ease infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3.2rem;
+    color:#ff66a4;
+    margin-bottom:5px;
+    text-shadow:0 0 14px rgba(255,100,160,0.3);
+}
+
+.subtitle{
+    font-size:1.2rem;
+    color:#ba3d72;
+    margin-bottom:30px;
+}
+
+body::before{
+    content:"🎉";
+    position:fixed;
+    font-size:3rem;
+    opacity:0.2;
+    top:10%;
+    left:7%;
+    animation:float1 6s infinite alternate;
+}
+
+body::after{
+    content:"🎈";
+    position:fixed;
+    font-size:3rem;
+    opacity:0.25;
+    bottom:12%;
+    right:8%;
+    animation:float2 7s infinite alternate;
+}
+
+@keyframes float1{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-15px);}
+}
+
+@keyframes float2{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(12px);}
+}
+
+.birthday-section{
+    max-width:1050px;
+    margin:0 auto 45px;
+    padding:28px 20px 32px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.48);
+    border:1px solid rgba(255,255,255,0.8);
+    box-shadow:0 10px 35px rgba(194,51,112,0.12);
+}
+
+.birthday-title{
+    font-family:'Dancing Script',cursive;
+    font-size:2.35rem;
+    color:#c23370;
+    margin:0 0 22px;
+}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.photo{
+    background:white;
+    width:170px;
+    padding:12px 12px 28px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(255,100,160,0.25);
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.photo:hover{
+    transform:scale(1.08) rotate(1deg);
+    box-shadow:0 12px 35px rgba(255,120,180,0.35);
+}
+
+.photo img{
+    width:100%;
+    border-radius:10px;
+    display:block;
+    aspect-ratio:1/1;
+    object-fit:cover;
+}
+
+.caption{
+    font-family:'Dancing Script',cursive;
+    font-size:1.3rem;
+    margin-top:8px;
+    color:#c23370;
+}
+
+.locked-section{
+    position:relative;
+    overflow:hidden;
+    min-height:260px;
+}
+
+.locked-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:10;
+    background:rgba(255,255,255,0.52);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+.lock-message{
+    position:absolute;
+    z-index:20;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(300px,75%);
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.94);
+    box-shadow:0 12px 35px rgba(194,51,112,0.25);
+    color:#a52d61;
+    font-weight:600;
+}
+
+.lock-icon{
+    display:block;
+    font-size:2.5rem;
+    margin-bottom:7px;
+}
+
+.unlock-date{
+    display:block;
+    margin-top:7px;
+    font-size:.8rem;
+    font-weight:400;
+    color:#ba3d72;
+}
+
+#lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 0 35px rgba(0,0,0,0.5);
+    animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+    from{opacity:0;transform:scale(0.8);}
+    to{opacity:1;transform:scale(1);}
+}
+
+.close-btn{
+    position:fixed;
+    top:20px;
+    right:25px;
+    font-size:2.4rem;
+    color:white;
+    cursor:pointer;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:5px;
+    padding:12px 28px;
+    background:#ff5da8;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:25px;
+    box-shadow:0 8px 22px rgba(255,80,150,0.3);
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+}
+
+@media(max-width:600px){
+    body{padding:15px;}
+    h1{font-size:2.7rem;}
+    .birthday-title{font-size:2rem;}
+    .photo{width:140px;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Birthday Memories 🎂✨</h1>
+<p class="subtitle">Her special days, her glowing smiles, your precious moments.</p>
+
+<!-- 1st Birthday — UNLOCKED -->
+<section class="birthday-section">
+    <h2 class="birthday-title">🎂 1st Birthday</h2>
+    <div class="gallery">
+        <div class="photo" onclick="openLightbox('birthday/birthday1.jpg')">
+            <img src="birthday/birthday1.jpg" alt="1st birthday photo 1">
+            <div class="caption">Her big day 💕</div>
+        </div>
+        <div class="photo" onclick="openLightbox('birthday/birthday2.jpg')">
+            <img src="birthday/birthday2.jpg" alt="1st birthday photo 2">
+            <div class="caption">Pretty birthday girl 🎀</div>
+        </div>
+        <div class="photo" onclick="openLightbox('birthday/birthday3.jpg')">
+            <img src="birthday/birthday3.jpg" alt="1st birthday photo 3">
+            <div class="caption">Cutest smile 🤍</div>
+        </div>
+    </div>
+</section>
+
+<!-- 2nd Birthday — UNLOCKED -->
+<section class="birthday-section">
+    <h2 class="birthday-title">🎈 2nd Birthday</h2>
+    <div class="gallery">
+        <div class="photo" onclick="openLightbox('birthday/birthday4.jpg')">
+            <img src="birthday/birthday4.jpg" alt="2nd birthday photo 1">
+            <div class="caption">Birthday magic ✨</div>
+        </div>
+        <div class="photo" onclick="openLightbox('birthday/birthday5.jpg')">
+            <img src="birthday/birthday5.jpg" alt="2nd birthday photo 2">
+            <div class="caption">Sweetest moment 💗</div>
+        </div>
+        <div class="photo" onclick="openLightbox('birthday/birthday6.jpg')">
+            <img src="birthday/birthday6.jpg" alt="2nd birthday photo 3">
+            <div class="caption">A memory to keep 🎂</div>
+        </div>
+    </div>
+</section>
+
+<!-- 3rd Birthday — LOCKED -->
+<section class="birthday-section birthday-locked locked-section">
+    <div class="lock-message">
+        <span class="lock-icon">🔒</span>
+        3rd Birthday is locked
+        <span class="unlock-date">Unlocks on 5 September at 12:00 AM</span>
+    </div>
+    <h2 class="birthday-title">🎁 3rd Birthday</h2>
+    <div class="gallery">
+        <div class="photo"><img src="birthday/birthday7.jpg" alt="3rd birthday photo 1"><div class="caption">A new memory ✨</div></div>
+        <div class="photo"><img src="birthday/birthday8.jpg" alt="3rd birthday photo 2"><div class="caption">Another beautiful moment 💗</div></div>
+        <div class="photo"><img src="birthday/birthday9.jpg" alt="3rd birthday photo 3"><div class="caption">Birthday memories 🎂</div></div>
+    </div>
+</section>
+
+<!-- 4th Birthday — LOCKED -->
+<section class="birthday-section birthday-locked locked-section">
+    <div class="lock-message">
+        <span class="lock-icon">🔒</span>
+        4th Birthday is locked
+        <span class="unlock-date">Unlocks on 5 September at 12:00 AM</span>
+    </div>
+    <h2 class="birthday-title">🌸 4th Birthday</h2>
+    <div class="gallery">
+        <div class="photo"><img src="birthday/birthday10.jpg" alt="4th birthday photo 1"><div class="caption">A future memory ✨</div></div>
+        <div class="photo"><img src="birthday/birthday11.jpg" alt="4th birthday photo 2"><div class="caption">A future smile 💕</div></div>
+        <div class="photo"><img src="birthday/birthday12.jpg" alt="4th birthday photo 3"><div class="caption">Another chapter 🎀</div></div>
+    </div>
+</section>
+
+<!-- 5th Birthday — LOCKED -->
+<section class="birthday-section birthday-locked locked-section">
+    <div class="lock-message">
+        <span class="lock-icon">🔒</span>
+        5th Birthday is locked
+        <span class="unlock-date">Unlocks on 5 September at 12:00 AM</span>
+    </div>
+    <h2 class="birthday-title">💖 5th Birthday</h2>
+    <div class="gallery">
+        <div class="photo"><img src="birthday/birthday13.jpg" alt="5th birthday photo 1"><div class="caption">A memory waiting ✨</div></div>
+        <div class="photo"><img src="birthday/birthday14.jpg" alt="5th birthday photo 2"><div class="caption">A special moment 💗</div></div>
+        <div class="photo"><img src="birthday/birthday15.jpg" alt="5th birthday photo 3"><div class="caption">Forever to remember 🎂</div></div>
+    </div>
+</section>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" alt="Birthday memory">
+</div>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display = "none";
+}
+
+/*
+  Birthday unlock:
+  - 1st and 2nd birthdays are always open.
+  - 3rd, 4th and 5th remain locked until September 5 at 12:00 AM.
+  - The check runs every minute so it unlocks automatically without refresh.
+  - The date uses the visitor's local browser time.
+*/
+function updateBirthdayLocks(){
+    const now = new Date();
+    const month = now.getMonth(); // September = 8
+    const day = now.getDate();
+
+    const unlocked = month > 8 || (month === 8 && day >= 5);
+
+    document.querySelectorAll(".birthday-locked").forEach(section => {
+        if(unlocked){
+            section.classList.remove("locked-section");
+
+            const message = section.querySelector(".lock-message");
+            if(message){
+                message.remove();
+            }
+
+            section.querySelectorAll(".photo").forEach(photo => {
+                const img = photo.querySelector("img");
+                if(img && !photo.getAttribute("onclick")){
+                    photo.setAttribute(
+                        "onclick",
+                        "openLightbox('" + img.getAttribute("src") + "')"
+                    );
+                }
+            });
+        }
+    });
+}
+
+updateBirthdayLocks();
+setInterval(updateBirthdayLocks, 60000);
+</script>
+
+<a href="../gallery.html" class="back-btn">⟵ Back to Gallery</a>
+
+</body>
+</html>
