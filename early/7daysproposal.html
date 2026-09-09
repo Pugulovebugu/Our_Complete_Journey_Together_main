@@ -227,6 +227,85 @@
                 font-size: 2rem;
             }
         }
+    .bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin: 30px auto 0;
+    width: 100%;
+    max-width: 900px;
+}
+
+.nav-side {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border: 1px solid rgba(255,255,255,.78);
+    border-radius: 999px;
+    background: rgba(255,255,255,.28);
+    color: #9a7085;
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .4px;
+    text-decoration: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 12px 30px rgba(72,49,65,.06),
+        inset 0 1px 0 white;
+    transition: .4s ease;
+}
+
+.nav-back {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.78);
+    border-radius: 50%;
+    background: rgba(255,255,255,.34);
+    color: #8e6680;
+    font-size: .82rem;
+    text-decoration: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 12px 30px rgba(72,49,65,.06),
+        inset 0 1px 0 white;
+    transition: .4s ease;
+}
+
+.nav-side:hover,
+.nav-back:hover {
+    transform: translateY(-3px);
+    color: #b64f83;
+    box-shadow: 0 17px 38px rgba(72,49,65,.11);
+}
+
+@media (max-width:720px) {
+    .bottom-navigation {
+        gap: 10px;
+    }
+
+    .nav-side {
+        padding: 11px 16px;
+        font-size: .58rem;
+    }
+
+    .nav-back {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: .75rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -276,7 +355,21 @@
             </div>
         </div>
     </div>
-    
+    <div class="bottom-navigation">
+
+    <a class="nav-side" href="7days.html">
+        ← 💗 Previous
+    </a>
+
+    <a class="nav-back" href="7days_menu.html" aria-label="Home">
+        Back
+    </a>
+
+    <a class="nav-side" href="15days.html">
+        💗 15 Days →
+    </a>
+
+</div>
     <footer>
         <p>To a lifetime of love, laughter, and happiness together</p>
         <p>Made with ❤️ by Sam for Elina</p>

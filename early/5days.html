@@ -82,23 +82,84 @@ h1 {
 }
 
 /* Back Button */
-.back-btn {
-    display: block;
-    width: fit-content;
-    margin: 35px auto 10px auto;
-    padding: 12px 27px;
-    background: #f39c7f;
-    color: white;
-    font-weight: 600;
-    border-radius: 25px;
-    font-size: 1.15rem;
-    box-shadow: 0 4px 12px rgba(200, 100, 70, 0.35);
-    transition: 0.3s ease;
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin: 30px auto 0;
+    width: 100%;
+    max-width: 900px;
 }
-.back-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: #e18667;
-    box-shadow: 0 8px 22px rgba(200,100,70,0.45);
+
+.nav-side {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border: 1px solid rgba(255,255,255,.78);
+    border-radius: 999px;
+    background: rgba(255,255,255,.28);
+    color: #9a7085;
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .4px;
+    text-decoration: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 12px 30px rgba(72,49,65,.06),
+        inset 0 1px 0 white;
+    transition: .4s ease;
+}
+
+.nav-back {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.78);
+    border-radius: 50%;
+    background: rgba(255,255,255,.34);
+    color: #8e6680;
+    font-size: .82rem;
+    text-decoration: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 12px 30px rgba(72,49,65,.06),
+        inset 0 1px 0 white;
+    transition: .4s ease;
+}
+
+.nav-side:hover,
+.nav-back:hover {
+    transform: translateY(-3px);
+    color: #b64f83;
+    box-shadow: 0 17px 38px rgba(72,49,65,.11);
+}
+
+@media (max-width:720px) {
+    .bottom-navigation {
+        gap: 10px;
+    }
+
+    .nav-side {
+        padding: 11px 16px;
+        font-size: .58rem;
+    }
+
+    .nav-back {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: .75rem;
+    }
 }
 
 /* Floating Glow Particles */
@@ -167,8 +228,21 @@ h1 {
     </p>
 </div>
 
-<a href="../earlydays.html" class="back-btn">← Back </a>
+<div class="bottom-navigation">
 
+    <a class="nav-side" href="proposal.html">
+        ← 💍 Proposal
+    </a>
+
+    <a class="nav-back" href="../earlydays.html" aria-label="Home">
+        Back
+    </a>
+
+    <a class="nav-side" href="7days_menu.html">
+       🌸 7 Days →
+    </a>
+
+</div>
 <script>
 // Floating Glow
 setInterval(()=>{
