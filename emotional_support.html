@@ -8,146 +8,173 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
-a { text-decoration: none; }
-
+:root{--ink:#3a3038;--muted:#927d89;--pink:#c85a91}
+*{box-sizing:border-box}
+a{text-decoration:none}
 body{
-    margin:0;
-    padding:30px;
-    font-family:'Poppins',sans-serif;
-    text-align:center;
-    background:linear-gradient(135deg,#ffe7f2,#e8f1ff,#ffe9f6);
-    background-size:300% 300%;
-    animation:bgShift 14s infinite alternate;
+margin:0;min-height:100vh;overflow-x:hidden;font-family:'Poppins',sans-serif;color:var(--ink);
+background:#f7f2f6;text-align:center
 }
-@keyframes bgShift{
-    from{background-position:left}
-    to{background-position:right}
+body:before{
+content:"";position:fixed;inset:-25%;z-index:-10;pointer-events:none;
+background:
+radial-gradient(circle at 10% 16%,rgba(255,132,190,.31),transparent 21%),
+radial-gradient(circle at 87% 10%,rgba(130,116,224,.29),transparent 23%),
+radial-gradient(circle at 91% 78%,rgba(99,174,226,.25),transparent 22%),
+radial-gradient(circle at 18% 91%,rgba(255,180,119,.22),transparent 21%),
+radial-gradient(circle at 50% 48%,rgba(255,255,255,.78),transparent 39%);
+animation:aurora 20s ease-in-out infinite alternate
 }
-
+body:after{content:"";position:fixed;inset:0;z-index:-9;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.46),transparent 45%,rgba(255,255,255,.25))}
+.ambient-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-3;filter:blur(4px)}
+.orb-one{width:250px;height:250px;left:-150px;top:18%;background:rgba(241,113,176,.15);animation:orb1 12s ease-in-out infinite}
+.orb-two{width:320px;height:320px;right:-190px;bottom:4%;background:rgba(111,143,222,.14);animation:orb2 15s ease-in-out infinite}
+.orb-three{width:160px;height:160px;right:15%;top:30%;background:rgba(232,160,120,.10);animation:orb3 11s ease-in-out infinite}
+.page{width:min(100%,920px);margin:auto;padding:20px 28px 62px;position:relative;z-index:1}
+.top{animation:fadeDown 1s cubic-bezier(.2,.8,.2,1) both}
+.signature{
+width:max-content;margin:2px auto 28px;padding:8px 18px 6px;position:relative;display:flex;align-items:center;gap:7px;
+border:1px solid rgba(255,255,255,.62);border-radius:30px;background:rgba(255,255,255,.22);
+backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(84,51,73,.06),inset 0 1px 0 white
+}
+.signature-name{font-family:'Dancing Script',cursive;font-size:2rem;line-height:1;color:#b64f83;letter-spacing:.4px;text-shadow:0 3px 12px rgba(182,79,131,.15)}
+.signature-heart{font-family:serif;color:#d56b9d;font-size:1rem}
+.signature-line{position:absolute;left:21%;right:21%;bottom:4px;height:1px;background:linear-gradient(90deg,transparent,#d28aaa,transparent)}
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:11px;color:#a0788d;font-size:.57rem;font-weight:700;letter-spacing:3.1px;text-transform:uppercase}
+.eyebrow span{width:28px;height:1px;background:linear-gradient(90deg,transparent,#c886a5)}
+.eyebrow span:last-child{background:linear-gradient(90deg,#c886a5,transparent)}
 h1{
-    margin-top:40px;
-    font-family:'Dancing Script',cursive;
-    font-size:3rem;
-    color:#ff4f9a;
-    text-shadow:0 0 12px rgba(255,120,180,0.3);
+margin:14px 0 8px;font-family:'Dancing Script',cursive;font-size:clamp(3.4rem,8vw,5.7rem);
+line-height:.95;font-weight:700;color:#352b32;letter-spacing:-1px
 }
-
-.grid{
-    width:90%;
-    max-width:850px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:22px;
+h1 em{
+font-style:normal;background:linear-gradient(90deg,#c64f8b,#7e6bc7,#689bd3);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;
+animation:gradientShift 7s ease-in-out infinite alternate
 }
-
-.btn{
-    background:rgba(255,255,255,0.82);
-    border:2px solid #ffd7ea;
-    padding:22px 10px;
-    border-radius:22px;
-    font-weight:600;
-    font-size:1.2rem;
-    color:#444;
-    box-shadow:0 8px 22px rgba(255,120,180,0.25);
-    transition:.3s ease;
+.subtitle{max-width:590px;margin:17px auto 0;color:var(--muted);font-size:.78rem;line-height:1.8}
+.support-grid{
+margin:47px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;text-align:left
 }
-.btn:hover{
-    background:white;
-    transform:translateY(-6px) scale(1.05);
-    box-shadow:0 12px 28px rgba(255,120,180,0.35);
-    color:#ff4f9a;
+.support-card{
+position:relative;min-height:145px;padding:24px;overflow:hidden;display:flex;align-items:center;gap:17px;
+border:1px solid rgba(255,255,255,.78);border-radius:29px;
+background:linear-gradient(135deg,rgba(255,255,255,.52),rgba(255,255,255,.21));
+backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+box-shadow:0 20px 50px rgba(72,49,65,.08),inset 0 1px 0 white;
+opacity:0;animation:cardIn .85s cubic-bezier(.2,.8,.2,1) forwards;
+transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s,border-color .55s
 }
-
-/* Back button */
-.back{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 30px;
-    background:#ff5da8;
-    color:white;
-    font-weight:600;
-    border-radius:24px;
-    font-size:1.1rem;
-    box-shadow:0 8px 20px rgba(255,120,180,0.25);
+.support-card:before{
+content:"";position:absolute;inset:-90%;background:linear-gradient(105deg,transparent 46%,rgba(255,255,255,.66) 50%,transparent 54%);
+transform:translateX(-38%) rotate(10deg);transition:transform 1s ease;pointer-events:none
 }
-.back:hover{
-    transform:scale(1.07);
-    background:#ff3f90;
+.support-card:after{
+content:"";position:absolute;width:190px;height:190px;right:-100px;bottom:-100px;border-radius:50%;
+background:linear-gradient(135deg,rgba(238,123,174,.18),rgba(126,119,213,.11));transition:transform .6s ease
 }
-
-/* Floating hearts */
-.heart{
-    position:fixed;
-    bottom:-20px;
-    color:#ff74bb;
-    opacity:.8;
-    animation:floatUp 7s linear infinite;
-    z-index:-1;
+.support-card:hover{transform:translateY(-9px) scale(1.012);box-shadow:0 30px 70px rgba(72,49,65,.14),inset 0 1px 0 white;border-color:rgba(255,255,255,.96)}
+.support-card:hover:before{transform:translateX(38%) rotate(10deg)}
+.support-card:hover:after{transform:scale(1.45)}
+.support-icon{
+position:relative;z-index:2;width:56px;height:56px;min-width:56px;display:grid;place-items:center;
+border:1px solid rgba(255,255,255,.84);border-radius:17px;
+background:linear-gradient(135deg,rgba(255,225,240,.88),rgba(225,219,250,.68));
+box-shadow:0 10px 25px rgba(94,64,82,.07);font-size:1.35rem;transition:.5s cubic-bezier(.2,.8,.2,1)
 }
-@keyframes floatUp{
-    from{transform:translateY(0) scale(1)}
-    to{transform:translateY(-110vh) scale(1.5);opacity:0}
+.support-card:nth-child(even) .support-icon{background:linear-gradient(135deg,rgba(222,237,255,.9),rgba(229,220,249,.75))}
+.support-card:hover .support-icon{transform:translateY(-5px) rotate(-6deg) scale(1.09)}
+.card-copy{position:relative;z-index:2}
+.card-label{color:#a98193;font-size:.5rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.card-title{margin:5px 0 2px;font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;line-height:1;font-weight:600;color:#493941}
+.card-arrow{position:absolute;right:22px;bottom:19px;z-index:3;color:#ae638b;font-size:1rem;transition:.45s}
+.support-card:hover .card-arrow{transform:translate(5px,-5px)}
+.card-one{animation-delay:.20s}.card-two{animation-delay:.32s}.card-three{animation-delay:.44s}
+.card-four{animation-delay:.56s}.card-five{animation-delay:.68s}.card-six{animation-delay:.80s}.card-seven{animation-delay:.92s}
+.bottom-navigation{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:30px}
+.nav-side{
+width:max-content;display:flex;align-items:center;gap:9px;margin:0;padding:13px 22px;border:1px solid rgba(255,255,255,.78);
+border-radius:999px;background:rgba(255,255,255,.28);color:#9a7085;font-size:.66rem;font-weight:700;letter-spacing:.4px;
+backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(72,49,65,.06),inset 0 1px 0 white;transition:.4s ease
 }
-
-/* Sparkles */
-.sparkle{
-    position:fixed;
-    width:10px;
-    height:10px;
-    background:#ffb6d9;
-    border-radius:50%;
-    pointer-events:none;
-    animation:sparkleFade .8s linear forwards;
+.nav-back{
+width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center;margin:0;padding:0;
+border:1px solid rgba(255,255,255,.78);border-radius:50%;background:rgba(255,255,255,.34);color:#8e6680;font-size:.82rem;font-weight:700;
+backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(72,49,65,.06),inset 0 1px 0 white;transition:.4s ease
 }
-@keyframes sparkleFade{
-    from{opacity:1;transform:scale(1)}
-    to{opacity:0;transform:scale(2.2)}
+.nav-side:hover,.nav-back:hover{transform:translateY(-3px);color:#b64f83;box-shadow:0 17px 38px rgba(72,49,65,.11)}
+.floating-symbol{position:fixed;bottom:-25px;z-index:0;color:#cf709d;opacity:0;pointer-events:none;animation:floatUp linear forwards;filter:drop-shadow(0 4px 8px rgba(190,90,137,.14))}
+@keyframes aurora{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.09)}}
+@keyframes orb1{50%{transform:translate(42px,-22px) scale(1.08)}} @keyframes orb2{50%{transform:translate(-38px,18px) scale(.94)}} @keyframes orb3{50%{transform:translate(-24px,30px) scale(1.1)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+@keyframes signatureIn{from{opacity:0;transform:translateY(-12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes gradientShift{from{background-position:0% center}to{background-position:100% center}}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.8);opacity:0}12%{opacity:.20}100%{transform:translateY(-110vh) rotate(18deg) scale(1.25);opacity:0}}
+@media(max-width:720px){
+.page{padding:15px 14px 48px}.signature{margin-bottom:24px;padding:7px 15px 5px}.signature-name{font-size:1.82rem}
+.eyebrow{font-size:.48rem;letter-spacing:2.4px;gap:7px}.eyebrow span{width:18px}
+h1{font-size:clamp(3.05rem,14vw,4.7rem)}.subtitle{font-size:.72rem;line-height:1.75;margin-top:15px}
+.support-grid{grid-template-columns:1fr;gap:14px;margin-top:34px}.support-card{min-height:112px;padding:20px;border-radius:23px}
+.support-icon{width:44px;height:44px;min-width:44px;border-radius:13px;font-size:1.05rem}.card-title{font-size:1.35rem}.card-label{font-size:.46rem}
+.bottom-navigation{gap:10px;margin-top:24px}.nav-side{padding:11px 16px;font-size:.58rem}.nav-back{width:38px;height:38px;flex-basis:38px;font-size:.75rem}
 }
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 
 <body>
+<div class="ambient-orb orb-one"></div>
+<div class="ambient-orb orb-two"></div>
+<div class="ambient-orb orb-three"></div>
 
-<h1>Emotional Support 💗</h1>
+<main class="page">
+<header class="top">
+  <a href="index.html" class="signature" aria-label="Back to home">
+    <span class="signature-name">Bugu</span><span class="signature-heart">♥</span><span class="signature-name">Pugu</span>
+    <span class="signature-line"></span>
+  </a>
+  <div class="eyebrow"><span></span> A little place to breathe <span></span></div>
+  <h1>Emotional <em>Support</em> 💗</h1>
+  <p class="subtitle">For the moments when you need a little extra warmth, comfort, and reassurance…</p>
+</header>
 
-<div class="grid">
+<section class="support-grid" aria-label="Emotional support">
+  <a class="support-card card-one" href="emotionalsupport/message_from_my_heart.html"><div class="support-icon">💗</div><div class="card-copy"><span class="card-label">From Me</span><div class="card-title">A Message From My Heart</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-two" href="emotionalsupport/heartbeat.html"><div class="support-icon">❤️</div><div class="card-copy"><span class="card-label">Feel Close</span><div class="card-title">Heartbeat</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-three" href="emotionalsupport/distance.html"><div class="support-icon">🌍</div><div class="card-copy"><span class="card-label">Even Apart</span><div class="card-title">Distance Map</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-four" href="emotionalsupport/hug.html"><div class="support-icon">🤗</div><div class="card-copy"><span class="card-label">Warmth</span><div class="card-title">Warm Hug</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-five" href="emotionalsupport/touch_me.html"><div class="support-icon">🌙</div><div class="card-copy"><span class="card-label">A Little Closer</span><div class="card-title">Touch Me</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-six" href="emotionalsupport/open_when.html"><div class="support-icon">💌</div><div class="card-copy"><span class="card-label">Whenever You Need</span><div class="card-title">Open When…</div></div><span class="card-arrow">↗</span></a>
+  <a class="support-card card-seven" href="emotionalsupport/mood_letters.html"><div class="support-icon">✨</div><div class="card-copy"><span class="card-label">For Every Feeling</span><div class="card-title">Mood Letters</div></div><span class="card-arrow">↗</span></a>
+</section>
 
-    <!-- ⭐ NEW BUTTON ADDED HERE ⭐ -->
-    <a class="btn" href="emotionalsupport/message_from_my_heart.html">💗 A Message From My Heart</a>
-
-    <a class="btn" href="emotionalsupport/heartbeat.html">❤️ Heartbeat</a>
-    <a class="btn" href="emotionalsupport/distance.html">🌍 Distance Map</a>
-    <a class="btn" href="emotionalsupport/hug.html">🤗 Warm Hug</a>
-    <a class="btn" href="emotionalsupport/touch_me.html">🌙 Touch Me</a>
-    <a class="btn" href="emotionalsupport/open_when.html">💌 Open When…</a>
-    <a class="btn" href="emotionalsupport/mood_letters.html">✨ Mood Letters</a>
+<div class="bottom-navigation">
+  <a class="nav-side" href="gallery.html">← 📸 Photo Gallery</a>
+  <a class="nav-back" href="index.html" aria-label="Back to home">🏡</a>
+  <a class="nav-side" href="index.html">Our Next Chapter →</a>
 </div>
-
-<a class="back" href="index.html">← Back to Home</a>
+</main>
 
 <script>
-// Hearts floating
-setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💗";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(Math.random()*18+16)+"px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),7000);
-},800);
-
-// Sparkles follow mouse
-document.addEventListener("mousemove",e=>{
-    const s=document.createElement("div");
-    s.className="sparkle";
-    s.style.left=e.pageX+"px";
-    s.style.top=e.pageY+"px";
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),800);
-});
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  const symbols=['♥','♡','✦','·'];
+  function createFloat(){
+    const el=document.createElement('span');
+    el.className='floating-symbol';
+    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=(Math.random()*100)+'vw';
+    el.style.animationDuration=(8+Math.random()*8)+'s';
+    el.style.animationDelay=(Math.random()*2)+'s';
+    el.style.fontSize=(8+Math.random()*10)+'px';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),18000);
+  }
+  for(let i=0;i<8;i++) setTimeout(createFloat,i*650);
+  setInterval(createFloat,2500);
+})();
 </script>
-
 </body>
 </html>
