@@ -178,49 +178,9 @@ h1 em{
 
 /* install */
 #installBanner{
-  display:none;
-  width:max-content;
-  max-width:90%;
-  margin:0 auto 14px;
-  padding:11px 22px;
-
-  border:1px solid rgba(255,255,255,.82);
-  border-radius:18px;
-
-  background:linear-gradient(
-    110deg,
-    rgba(198,91,142,.92),
-    rgba(130,107,200,.92)
-  );
-
-  color:#fff;
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.3px;
-
-  box-shadow:
-    0 12px 32px rgba(126,71,112,.18),
-    inset 0 1px 0 rgba(255,255,255,.55);
-
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-
-  cursor:pointer;
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-#installBanner:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 17px 38px rgba(126,71,112,.25),
-    inset 0 1px 0 rgba(255,255,255,.7);
-}
-
-#installBanner:active{
-  transform:scale(.97);
+ display:none;width:min(100%,370px);margin:30px auto 0;padding:13px 21px;border-radius:18px;
+ border:1px solid rgba(255,255,255,.84);background:linear-gradient(100deg,#c65b8e,#826bc8);
+ color:#fff;font-size:.75rem;font-weight:700;box-shadow:0 15px 38px rgba(126,71,112,.20);cursor:pointer;
 }
 
 /* floating hearts */
@@ -251,6 +211,25 @@ h1 em{
  .card-title{font-size:1.28rem;margin-top:18px}.card-desc{font-size:.61rem}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Universal site search */
+.search-wrap{width:min(100%,760px);margin:0 auto 42px;position:relative;z-index:20;animation:fadeUp .9s .48s both}
+.search-box{display:flex;align-items:center;gap:11px;padding:7px 9px 7px 17px;border:1px solid rgba(255,255,255,.82);border-radius:999px;background:rgba(255,255,255,.30);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 18px 48px rgba(72,49,65,.08),inset 0 1px 0 white}
+.search-icon{font-size:1rem;color:#a65a82}
+#journeySearch{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#493941;font:500 .78rem 'DM Sans',sans-serif}
+#journeySearch::placeholder{color:#a18c96}
+.search-clear{width:32px;height:32px;border:0;border-radius:50%;display:none;place-items:center;background:rgba(255,255,255,.45);color:#a16a86;cursor:pointer}
+.search-results{display:none;margin-top:10px;padding:8px;border:1px solid rgba(255,255,255,.78);border-radius:20px;background:rgba(255,255,255,.30);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 18px 48px rgba(72,49,65,.08);text-align:left;max-height:420px;overflow:auto}
+.search-results.show{display:block}
+.search-result{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:14px;color:#493941;text-decoration:none;transition:.25s ease}
+.search-result:hover{background:rgba(255,255,255,.45);transform:translateX(3px)}
+.search-result-icon{width:30px;text-align:center}
+.search-result-title{font-size:.72rem;font-weight:700}
+.search-result-desc{font-size:.57rem;color:#9a8490;margin-top:2px}
+.search-result-path{font-size:.49rem;color:#b0929f;margin-top:2px;word-break:break-all}
+.search-empty{padding:14px;text-align:center;color:#9a8490;font-size:.65rem}
+.search-count{margin-top:8px;font-size:.52rem;color:#a18492;letter-spacing:.5px}
+@media(max-width:760px){.search-wrap{margin:0 auto 32px}.search-box{padding:6px 8px 6px 14px}#journeySearch{font-size:.7rem}}
+
 </style>
 </head>
 
@@ -275,7 +254,7 @@ h1 em{
     <div class="art-core">♡</div>
   </div>
 </section>
-<div id="installBanner">💗 Install our little space — Tap Here</div>
+
   <section class="counter-wrap" aria-label="Live relationship counter">
     <div class="counter-heading">Together for...</div>
     <div class="counter">
@@ -284,6 +263,18 @@ h1 em{
       <div class="unit"><div class="number" id="relDays">0</div><div class="label">Days</div></div>
       <div class="unit"><div class="number" id="relTime">00:00:00</div><div class="label">Hours · Minutes · Seconds</div></div>
     </div>
+  </section>
+
+  <section class="search-wrap" aria-label="Search our journey">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="journeySearch" type="search" autocomplete="off"
+             placeholder="Search our journey… (e.g. birthday, 13 month, gallery)"
+             aria-label="Search our journey">
+      <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-count" id="searchCount"></div>
   </section>
 
   <div class="section-kicker">Explore our story</div>
@@ -314,6 +305,8 @@ h1 em{
       <span class="card-desc">A gentle corner for the harder days.</span>
     </a>
   </nav>
+
+  <div id="installBanner">💗 Install our little space — Tap Here</div>
 </main>
 
 <script>
@@ -365,6 +358,105 @@ setInterval(()=>{
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),9000);
 },1400);
+
+  // Universal website search: every HTML file in the project
+  (() => {
+    const input = document.getElementById("journeySearch");
+    const results = document.getElementById("searchResults");
+    const clear = document.getElementById("searchClear");
+    const count = document.getElementById("searchCount");
+    if (!input || !results || !clear || !count) return;
+
+    let pages = [];
+
+    const esc = value => String(value).replace(/[&<>"']/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[c]));
+
+    const iconFor = page => {
+      const text = (page.title + " " + page.href).toLowerCase();
+      if (text.includes("birthday")) return "🎂";
+      if (text.includes("gallery") || text.includes("photo")) return "📸";
+      if (text.includes("anniversary") || text.includes("month")) return "💞";
+      if (text.includes("special") || text.includes("valentine") || text.includes("new year")) return "✨";
+      if (text.includes("support") || text.includes("heart") || text.includes("hug")) return "💗";
+      if (text.includes("early")) return "🌸";
+      return "♡";
+    };
+
+    async function loadIndex() {
+      try {
+        const response = await fetch("site-search-index.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("Search index unavailable");
+        pages = await response.json();
+        count.textContent = `${pages.length} pages available to search`;
+      } catch (error) {
+        pages = [];
+        results.classList.add("show");
+        results.innerHTML = '<div class="search-empty">Search index could not be loaded.<br><small>Make sure the project is opened from a web server/hosting, not directly as a file.</small></div>';
+        count.textContent = "";
+      }
+    }
+
+    function runSearch() {
+      const q = input.value.trim().toLowerCase();
+      clear.style.display = q ? "grid" : "none";
+
+      if (!q) {
+        results.classList.remove("show");
+        results.innerHTML = "";
+        count.textContent = pages.length ? `${pages.length} pages available to search` : "";
+        return;
+      }
+
+      const words = q.split(/\s+/).filter(Boolean);
+      const matches = pages
+        .map(page => {
+          const hay = (page.title + " " + page.desc + " " + page.href + " " + page.search).toLowerCase();
+          const score = words.reduce((n, word) => n + (hay.includes(word) ? 1 : 0), 0);
+          return { page, score };
+        })
+        .filter(x => x.score === words.length)
+        .sort((a,b) => b.score - a.score || a.page.title.localeCompare(b.page.title))
+        .map(x => x.page);
+
+      results.classList.add("show");
+
+      if (!matches.length) {
+        results.innerHTML = '<div class="search-empty">No page found 💗<br><small>Try birthday, anniversary, gallery, month, special, or support.</small></div>';
+        count.textContent = "0 results";
+        return;
+      }
+
+      results.innerHTML = matches.map(page => `
+        <a class="search-result" href="${esc(page.href)}">
+          <span class="search-result-icon">${iconFor(page)}</span>
+          <span>
+            <div class="search-result-title">${esc(page.title)}</div>
+            <div class="search-result-desc">${esc(page.desc)}</div>
+            <div class="search-result-path">${esc(page.href)}</div>
+          </span>
+        </a>
+      `).join("");
+
+      count.textContent = `${matches.length} result${matches.length === 1 ? "" : "s"} found`;
+    }
+
+    input.addEventListener("input", runSearch);
+    clear.addEventListener("click", () => {
+      input.value = "";
+      runSearch();
+      input.focus();
+    });
+    input.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        input.value = "";
+        runSearch();
+      }
+    });
+
+    loadIndex();
+  })();
 
 // PWA install banner
 let deferredPrompt;
