@@ -6,168 +6,484 @@
 <title>7 Days Menu 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
+
 <style>
-/* Remove underline everywhere */
-a { text-decoration: none !important; }
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;600;700&family=Parisienne&display=swap');
 
-/* Background */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffe6f7, #e3f0ff, #fff2e6);
-    background-size: 300% 300%;
-    animation: bgShift 12s infinite alternate;
-    overflow-x: hidden;
-}
-@keyframes bgShift {
-    from { background-position: left top; }
-    to { background-position: right bottom; }
+:root{
+  --ink:#3a3038;
+  --muted:#927d89;
+  --pink:#c85a91;
+  --violet:#8170c9;
+  --blue:#6fa0d8;
+  --peach:#e8a078;
+  --mint:#79bca9;
 }
 
-/* Navbar */
-.navbar {
-    width: 100%;
-    padding: 14px 0;
-    background: rgba(255,255,255,0.55);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 3px 10px rgba(255,150,190,0.25);
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.navbar a {
-    font-weight: 600;
-    color: #ff4f9a;
-    transition: 0.3s ease;
-}
-.navbar a:hover {
-    transform: scale(1.12);
-    color: #ff82c7;
+*{box-sizing:border-box}
+
+a,
+a:visited,
+a:hover,
+a:active{
+  color:inherit;
+  text-decoration:none;
 }
 
-/* Title */
-h1 {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 2.6rem;
-    color: #ff4f9a;
-    font-family: 'Dancing Script', cursive;
-    animation: fadeIn 1.5s ease;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:'DM Sans',sans-serif;
+  color:var(--ink);
+  background:#f7f2f6;
 }
 
-/* Menu Buttons */
-.menu {
-    margin: 50px auto;
-    width: 90%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+body:before{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  z-index:-10;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 16%,rgba(255,132,190,.31),transparent 21%),
+    radial-gradient(circle at 87% 10%,rgba(130,116,224,.29),transparent 23%),
+    radial-gradient(circle at 91% 78%,rgba(99,174,226,.25),transparent 22%),
+    radial-gradient(circle at 18% 91%,rgba(255,180,119,.22),transparent 21%),
+    radial-gradient(circle at 50% 48%,rgba(255,255,255,.78),transparent 39%);
+  animation:aurora 20s ease-in-out infinite alternate;
 }
 
-.btn {
-    background: rgba(255,255,255,0.7);
-    padding: 20px;
-    border-radius: 22px;
-    text-align: center;
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #444;
-    border: 2px solid #ffe1ef;
-    box-shadow: 0 6px 18px rgba(255,120,180,0.25);
-    transition: 0.3s ease;
-}
-.btn:hover {
-    background: white;
-    transform: translateY(-6px) scale(1.04);
-    box-shadow: 0 12px 28px rgba(255,120,160,0.38);
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-9;
+  pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.46),transparent 45%,rgba(255,255,255,.25));
 }
 
-/* Back */
-.back {
-    display: block;
-    margin: 30px auto;
-    text-align: center;
-    font-weight: 600;
-    color: #ff6faa;
+.ambient-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-3;filter:blur(4px)}
+.orb-one{width:250px;height:250px;left:-150px;top:18%;background:rgba(241,113,176,.15);animation:orb1 12s ease-in-out infinite}
+.orb-two{width:320px;height:320px;right:-190px;bottom:4%;background:rgba(111,143,222,.14);animation:orb2 15s ease-in-out infinite}
+.orb-three{width:160px;height:160px;right:15%;top:30%;background:rgba(232,160,120,.10);animation:orb3 11s ease-in-out infinite}
+
+.page{width:min(100%,920px);margin:auto;padding:20px 28px 62px;position:relative;z-index:1}
+
+.top{text-align:center;animation:fadeDown 1s cubic-bezier(.2,.8,.2,1) both}
+
+.signature{
+  width:max-content;
+  margin:2px auto 28px;
+  padding:8px 18px 6px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid rgba(255,255,255,.62);
+  border-radius:30px;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(84,51,73,.06),inset 0 1px 0 white;
+  animation:signatureIn 1.1s .05s both;
 }
 
-/* Floating Hearts */
-.heart {
-    position: fixed;
-    bottom: -20px;
-    color: #ff74bb;
-    opacity: 0.8;
-    animation: floatUp 6s linear infinite;
-    z-index: -1;
-}
-@keyframes floatUp {
-    from { transform: translateY(0) scale(1); }
-    to { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+.signature-name{
+  font-family:'Parisienne',cursive;
+  font-size:2rem;
+  line-height:1;
+  color:#b64f83;
+  letter-spacing:.4px;
+  text-shadow:0 3px 12px rgba(182,79,131,.15);
 }
 
-/* Cursor Sparkles */
-.sparkle {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: #ffb6d9;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: sparkleFade 0.7s linear forwards;
-}
-@keyframes sparkleFade {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(2); }
+.signature-heart{font-family:serif;color:#d56b9d;font-size:1rem}
+.signature-line{
+  position:absolute;
+  left:21%;
+  right:21%;
+  bottom:4px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#d28aaa,transparent);
 }
 
+.eyebrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  color:#a0788d;
+  font-size:.57rem;
+  font-weight:700;
+  letter-spacing:3.1px;
+  text-transform:uppercase;
+}
+
+.eyebrow span{width:28px;height:1px;background:linear-gradient(90deg,transparent,#c886a5)}
+.eyebrow span:last-child{background:linear-gradient(90deg,#c886a5,transparent)}
+
+h1{
+  margin:14px 0 8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.7rem,8vw,6.1rem);
+  line-height:.86;
+  font-weight:600;
+  letter-spacing:-1.7px;
+  color:#352b32;
+}
+
+h1 em{
+  font-style:italic;
+  font-weight:500;
+  background:linear-gradient(90deg,#c64f8b,#7e6bc7,#689bd3);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:gradientShift 7s ease-in-out infinite alternate;
+}
+
+.intro{
+  max-width:590px;
+  margin:17px auto 0;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.8;
+}
+
+/* Two-option menu, using the same glass cards as Early Days */
+.timeline{
+  position:relative;
+  margin:47px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px 30px;
+}
+
+.timeline-line{
+  position:absolute;
+  top:25px;
+  bottom:25px;
+  left:50%;
+  width:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,rgba(188,119,153,.34) 12%,rgba(132,111,198,.28) 50%,rgba(188,119,153,.34) 88%,transparent);
+}
+
+.memory-card,
+.memory-card:visited,
+.memory-card:hover,
+.memory-card:active{
+  color:#493941;
+  text-decoration:none;
+}
+
+.memory-card{
+  position:relative;
+  min-height:245px;
+  padding:23px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  text-align:left;
+  border:1px solid rgba(255,255,255,.77);
+  border-radius:27px;
+  background:linear-gradient(135deg,rgba(255,255,255,.51),rgba(255,255,255,.22));
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  box-shadow:0 18px 46px rgba(72,49,65,.075),inset 0 1px 0 white;
+  opacity:0;
+  animation:cardIn .85s cubic-bezier(.2,.8,.2,1) forwards;
+  transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s,border-color .55s,background .55s;
+}
+
+.card-one{animation-delay:.34s}
+.card-two{animation-delay:.46s}
+
+.memory-card:before{
+  content:"";
+  position:absolute;
+  inset:-90%;
+  background:linear-gradient(105deg,transparent 46%,rgba(255,255,255,.66) 50%,transparent 54%);
+  transform:translateX(-38%) rotate(10deg);
+  transition:transform 1s ease;
+  pointer-events:none;
+}
+
+.memory-card:after{
+  content:"";
+  position:absolute;
+  width:180px;height:180px;
+  right:-95px;bottom:-95px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(238,123,174,.18),rgba(126,119,213,.11));
+  transition:transform .6s ease;
+}
+
+.memory-card:hover{
+  transform:translateY(-9px) scale(1.012);
+  box-shadow:0 30px 68px rgba(72,49,65,.14),inset 0 1px 0 white;
+  border-color:rgba(255,255,255,.96);
+}
+
+.memory-card:hover:before{transform:translateX(38%) rotate(10deg)}
+.memory-card:hover:after{transform:scale(1.45)}
+
+.card-glow{
+  position:absolute;
+  width:110px;height:110px;
+  left:-55px;top:-55px;
+  border-radius:50%;
+  background:rgba(231,119,169,.12);
+  filter:blur(10px);
+}
+
+.card-two .card-glow{background:rgba(111,157,216,.12)}
+
+.date-pill,.icon,.card-copy,.arrow{position:relative;z-index:2}
+
+.date-pill{
+  position:absolute;
+  top:18px;right:18px;
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.74);
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  color:#9b7488;
+  font-size:.47rem;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  backdrop-filter:blur(10px);
+}
+
+.icon{
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  margin-bottom:auto;
+  border:1px solid rgba(255,255,255,.84);
+  border-radius:15px;
+  background:linear-gradient(135deg,rgba(255,225,240,.88),rgba(225,219,250,.68));
+  box-shadow:0 9px 22px rgba(94,64,82,.07);
+  font-size:1.18rem;
+  transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.card-two .icon{background:linear-gradient(135deg,rgba(222,237,255,.9),rgba(229,220,249,.75))}
+.memory-card:hover .icon{transform:translateY(-5px) rotate(-6deg) scale(1.09)}
+
+.card-copy{margin-top:25px}
+
+.small-label{
+  color:#a98193;
+  font-size:.5rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+h2{
+  margin:5px 0 1px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.85rem;
+  line-height:1;
+  font-weight:600;
+  color:#493941;
+}
+
+.card-copy p{
+  margin:6px 0 0;
+  max-width:250px;
+  color:#97818c;
+  font-size:.62rem;
+  line-height:1.55;
+}
+
+.arrow{
+  position:absolute;
+  right:20px;
+  bottom:18px;
+  color:#ae638b;
+  font-size:1rem;
+  transition:.45s;
+}
+
+.memory-card:hover .arrow{transform:translate(5px,-5px)}
+
+.bottom-navigation{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:30px auto 0;
+}
+
+.back,
+.anniversary-btn{
+  width:max-content;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin:0;
+  padding:11px 18px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  color:#9a7085;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.4px;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 12px 30px rgba(72,49,65,.06),inset 0 1px 0 white;
+  transition:.4s ease;
+}
+
+.back:hover,
+.anniversary-btn:hover{
+  transform:translateY(-3px);
+  color:#b64f83;
+  box-shadow:0 17px 38px rgba(72,49,65,.11);
+}
+
+.back span{font-size:.95rem}
+
+.anniversary-btn span:first-child{font-size:.8rem}
+.anniversary-btn span:last-child{font-size:.9rem}
+
+.floating-symbol{
+  position:fixed;
+  bottom:-25px;
+  z-index:0;
+  color:#cf709d;
+  opacity:0;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+  filter:drop-shadow(0 4px 8px rgba(190,90,137,.14));
+}
+
+@keyframes aurora{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.09)}}
+@keyframes orb1{50%{transform:translate(42px,-22px) scale(1.08)}}
+@keyframes orb2{50%{transform:translate(-38px,18px) scale(.94)}}
+@keyframes orb3{50%{transform:translate(-24px,30px) scale(1.1)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+@keyframes signatureIn{from{opacity:0;transform:translateY(-12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes gradientShift{from{background-position:0% center}to{background-position:100% center}}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0) scale(.8);opacity:0}
+  12%{opacity:.20}
+  100%{transform:translateY(-110vh) rotate(18deg) scale(1.25);opacity:0}
+}
+
+@media(max-width:720px){
+  .page{padding:15px 14px 48px}
+  .signature{margin-bottom:24px;padding:7px 15px 5px}
+  .signature-name{font-size:1.82rem}
+  .eyebrow{font-size:.48rem;letter-spacing:2.4px;gap:7px}
+  .eyebrow span{width:18px}
+  h1{font-size:clamp(3.25rem,14vw,5rem);letter-spacing:-1.2px}
+  .intro{font-size:.72rem;line-height:1.75;margin-top:15px}
+  .timeline{grid-template-columns:1fr;gap:13px;margin-top:34px}
+  .timeline-line{display:none}
+  .memory-card{min-height:190px;padding:19px;border-radius:22px}
+  .date-pill{top:15px;right:15px;font-size:.42rem;padding:6px 8px}
+  .icon{width:40px;height:40px;border-radius:12px;font-size:1rem}
+  .card-copy{margin-top:20px}
+  h2{font-size:1.6rem}
+  .card-copy p{font-size:.58rem}
+  .bottom-navigation{gap:8px;padding:0 10px}
+  .bottom-navigation .back,
+  .anniversary-btn{padding:10px 13px;font-size:.58rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
-
 <body>
+<div class="ambient-orb orb-one"></div>
+<div class="ambient-orb orb-two"></div>
+<div class="ambient-orb orb-three"></div>
 
-<div class="navbar">
-    <a href="index.html">🏠 Home</a>
-</div>
+<main class="page">
+  <header class="top">
+    <a href="index.html" class="signature" aria-label="Back to home">
+      <span class="signature-name">Bugu</span>
+      <span class="signature-heart">♥</span>
+      <span class="signature-name">Pugu</span>
+      <span class="signature-line"></span>
+    </a>
 
-<h1>🌸 7 Days Options</h1>
+    <div class="eyebrow"><span></span> A little chapter from our story <span></span></div>
+    <h1>7 Days <em>Options</em></h1>
+    <p class="intro">A tiny little milestone from the beginning of our story — choose the page you want to revisit.</p>
+  </header>
 
-<div class="menu">
-    <a class="btn" href="7days.html">💗 7 Days</a>
-    <a class="btn" href="7daysproposal.html">💌 7 Days Proposal</a>
-</div>
+  <section class="timeline" aria-label="7 Days options">
+    <div class="timeline-line"></div>
 
-<a class="back" href="../earlydays.html">← Back </a>
+    <a class="memory-card card-one" href="7days.html">
+      <div class="card-glow"></div>
+      <div class="date-pill">29 July 2025</div>
+      <div class="icon">💗</div>
+      <div class="card-copy">
+        <span class="small-label">One sweet week</span>
+        <h2>7 Days</h2>
+        <p>One little week of becoming us.</p>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a class="memory-card card-two" href="7daysproposal.html">
+      <div class="card-glow"></div>
+      <div class="date-pill">7 Days Special</div>
+      <div class="icon">💌</div>
+      <div class="card-copy">
+        <span class="small-label">A special page</span>
+        <h2>7 Days Proposal</h2>
+        <p>A sweeter little way to revisit this milestone.</p>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+  </section>
+
+  <div class="bottom-navigation">
+    <a href="../earlydays.html" class="back">
+      <span>←</span> Back to early days
+    </a>
+  </div>
+</main>
 
 <script>
-/* Floating Hearts */
-setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "💗";
-    h.style.left = Math.random()*100 + "vw";
-    h.style.fontSize = (Math.random()*18+16) + "px";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
-}, 700);
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
 
-/* Cursor Sparkles */
-document.addEventListener("mousemove", e => {
-    const s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = e.pageX + "px";
-    s.style.top = e.pageY + "px";
-    document.body.appendChild(s);
-    setTimeout(() => s.remove(), 700);
-});
+  const symbols = ['♥','♡','✦','·'];
+  function createFloat() {
+    const el = document.createElement('span');
+    el.className = 'floating-symbol';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.animationDuration = (8 + Math.random() * 8) + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    el.style.fontSize = (8 + Math.random() * 10) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 18000);
+  }
+
+  for (let i = 0; i < 9; i++) setTimeout(createFloat, i * 650);
+  setInterval(createFloat, 2400);
+})();
 </script>
-
 </body>
+
 </html>
