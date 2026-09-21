@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7e7ef">
+<title>Girlfriend's Days 💐 | Bugu & Pugu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#40323b;
+  --muted:#927b88;
+  --pink:#c85b91;
+  --violet:#8171c7;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:'DM Sans',sans-serif;
+  color:var(--ink);
+  background:#f8f3f7;
+}
+
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus{
+  color:inherit;
+  text-decoration:none !important;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  z-index:-10;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 16%,rgba(255,132,190,.31),transparent 21%),
+    radial-gradient(circle at 87% 10%,rgba(130,116,224,.29),transparent 23%),
+    radial-gradient(circle at 91% 78%,rgba(99,174,226,.25),transparent 22%),
+    radial-gradient(circle at 18% 91%,rgba(255,180,119,.22),transparent 21%),
+    radial-gradient(circle at 50% 48%,rgba(255,255,255,.78),transparent 39%);
+  animation:aurora 20s ease-in-out infinite alternate;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-9;
+  pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.46),transparent 45%,rgba(255,255,255,.25));
+}
+
+.orb{
+  position:fixed;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-3;
+  filter:blur(4px);
+}
+.orb-one{
+  width:250px;height:250px;left:-150px;top:18%;
+  background:rgba(241,113,176,.15);
+  animation:orb1 12s ease-in-out infinite;
+}
+.orb-two{
+  width:320px;height:320px;right:-190px;bottom:4%;
+  background:rgba(111,143,222,.14);
+  animation:orb2 15s ease-in-out infinite;
+}
+.orb-three{
+  width:160px;height:160px;right:15%;top:30%;
+  background:rgba(232,160,120,.10);
+  animation:orb3 11s ease-in-out infinite;
+}
+
+.page{
+  width:min(100%,920px);
+  margin:auto;
+  padding:20px 28px 62px;
+  position:relative;
+  z-index:1;
+}
+
+.top{
+  text-align:center;
+  animation:fadeDown 1s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.signature{
+  width:max-content;
+  margin:2px auto 28px;
+  padding:8px 18px 6px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid rgba(255,255,255,.62);
+  border-radius:30px;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(84,51,73,.06),inset 0 1px 0 white;
+}
+
+.signature-name{
+  font-family:'Parisienne',cursive;
+  font-size:2rem;
+  line-height:1;
+  color:#b64f83;
+  letter-spacing:.4px;
+  text-shadow:0 3px 12px rgba(182,79,131,.15);
+}
+
+.signature-heart{
+  font-family:serif;
+  color:#d56b9d;
+  font-size:1rem;
+}
+
+.eyebrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  color:#a0788d;
+  font-size:.57rem;
+  font-weight:700;
+  letter-spacing:3.1px;
+  text-transform:uppercase;
+}
+
+.eyebrow span{
+  width:28px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c886a5);
+}
+
+.eyebrow span:last-child{
+  background:linear-gradient(90deg,#c886a5,transparent);
+}
+
+h1{
+  margin:14px 0 8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,8vw,6rem);
+  line-height:.86;
+  font-weight:600;
+  letter-spacing:-1.7px;
+  color:#352b32;
+}
+
+h1 em{
+  font-style:italic;
+  font-weight:500;
+  background:linear-gradient(90deg,#c64f8b,#7e6bc7,#689bd3);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:gradientShift 7s ease-in-out infinite alternate;
+}
+
+.intro{
+  max-width:590px;
+  margin:17px auto 0;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.8;
+}
+
+.menu{
+  margin:47px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.day-card{
+  position:relative;
+  min-height:132px;
+  padding:22px 27px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  gap:21px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:27px;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.21));
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  box-shadow:0 20px 50px rgba(72,49,65,.08),inset 0 1px 0 white;
+  opacity:0;
+  animation:cardIn .8s cubic-bezier(.2,.8,.2,1) forwards;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s;
+}
+
+.day-card:nth-child(1){animation-delay:.20s}
+.day-card:nth-child(2){animation-delay:.34s}
+.day-card:nth-child(3){animation-delay:.48s}
+.day-card:nth-child(4){animation-delay:.62s}
+.day-card:nth-child(5){animation-delay:.76s}
+
+.day-card:before{
+  content:"";
+  position:absolute;
+  inset:-100%;
+  background:linear-gradient(105deg,transparent 46%,rgba(255,255,255,.62) 50%,transparent 54%);
+  transform:translateX(-35%) rotate(8deg);
+  transition:transform 1s ease;
+  pointer-events:none;
+}
+
+.day-card:after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  right:-105px;
+  bottom:-105px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(238,123,174,.17),rgba(126,119,213,.10));
+  transition:transform .55s ease;
+}
+
+.day-card:hover{
+  transform:translateY(-6px) scale(1.008);
+  box-shadow:0 28px 65px rgba(72,49,65,.13),inset 0 1px 0 white;
+  border-color:rgba(255,255,255,.96);
+}
+
+.day-card:hover:before{transform:translateX(35%) rotate(8deg)}
+.day-card:hover:after{transform:scale(1.45)}
+
+.day-number{
+  position:relative;
+  z-index:2;
+  flex:0 0 76px;
+  width:76px;
+  height:76px;
+  display:grid;
+  place-items:center;
+  border-radius:23px;
+  border:1px solid rgba(255,255,255,.84);
+  background:linear-gradient(135deg,rgba(255,225,240,.88),rgba(225,219,250,.68));
+  box-shadow:0 10px 25px rgba(94,64,82,.07);
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+}
+
+.day-card:nth-child(2) .day-number{
+  background:linear-gradient(135deg,rgba(222,237,255,.9),rgba(229,220,249,.75));
+}
+.day-card:nth-child(3) .day-number{
+  background:linear-gradient(135deg,rgba(255,225,240,.9),rgba(249,220,231,.75));
+}
+.day-card:nth-child(4) .day-number{
+  background:linear-gradient(135deg,rgba(255,232,214,.9),rgba(225,220,249,.74));
+}
+.day-card:nth-child(5) .day-number{
+  background:linear-gradient(135deg,rgba(224,246,232,.9),rgba(229,220,249,.74));
+}
+
+.day-card:hover .day-number{
+  transform:translateY(-4px) rotate(-5deg) scale(1.06);
+}
+
+.day-number .emoji{
+  font-size:1.35rem;
+  line-height:1;
+}
+
+.day-number .ordinal{
+  margin-top:3px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;
+  font-weight:600;
+  color:#77576a;
+}
+
+.day-copy{
+  position:relative;
+  z-index:2;
+  flex:1;
+}
+
+.day-label{
+  color:#a98193;
+  font-size:.5rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.day-title{
+  margin:4px 0 4px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  line-height:1;
+  font-weight:600;
+  color:#493941;
+}
+
+.day-desc{
+  margin:0;
+  color:#97818c;
+  font-size:.62rem;
+  line-height:1.6;
+}
+
+.day-date{
+  margin-top:7px;
+  color:#b05c87;
+  font-size:.56rem;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+.arrow{
+  position:relative;
+  z-index:3;
+  flex:0 0 auto;
+  color:#ae638b;
+  font-size:1.1rem;
+  transition:.4s;
+}
+
+.day-card:hover .arrow{
+  transform:translate(5px,-5px);
+}
+
+.bottom-navigation{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-top:30px;
+}
+
+.bottom-navigation a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 16px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  color:#9a7085;
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.3px;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 12px 30px rgba(72,49,65,.06),inset 0 1px 0 white;
+  transition:.4s ease;
+}
+
+.bottom-navigation a:hover{
+  transform:translateY(-3px);
+  color:#b64f83;
+  box-shadow:0 17px 38px rgba(72,49,65,.11);
+}
+
+.home{
+  width:42px;
+  height:42px;
+  padding:0!important;
+  flex:0 0 42px;
+  border-radius:50%!important;
+}
+
+.floating-symbol{
+  position:fixed;
+  bottom:-25px;
+  z-index:0;
+  color:#cf709d;
+  opacity:0;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+  filter:drop-shadow(0 4px 8px rgba(190,90,137,.14));
+}
+
+@keyframes aurora{
+  from{transform:translate3d(-2%,-1%,0) scale(1)}
+  to{transform:translate3d(3%,2%,0) scale(1.09)}
+}
+@keyframes orb1{50%{transform:translate(42px,-22px) scale(1.08)}}
+@keyframes orb2{50%{transform:translate(-38px,18px) scale(.94)}}
+@keyframes orb3{50%{transform:translate(-24px,30px) scale(1.1)}}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-22px)}
+  to{opacity:1;transform:none}
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(28px) scale(.96)}
+  to{opacity:1;transform:none}
+}
+@keyframes gradientShift{
+  from{background-position:0% center}
+  to{background-position:100% center}
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0) scale(.8);opacity:0}
+  12%{opacity:.20}
+  100%{transform:translateY(-110vh) rotate(18deg) scale(1.25);opacity:0}
+}
+
+@media(max-width:720px){
+  .page{padding:15px 14px 48px}
+  .signature{margin-bottom:24px;padding:7px 15px 5px}
+  .signature-name{font-size:1.82rem}
+  .eyebrow{font-size:.48rem;letter-spacing:2.4px;gap:7px}
+  .eyebrow span{width:18px}
+  h1{font-size:clamp(3.15rem,14vw,5rem);letter-spacing:-1.2px}
+  .intro{font-size:.72rem;line-height:1.75;margin-top:15px}
+  .menu{gap:11px;margin-top:34px}
+  .day-card{
+    min-height:112px;
+    padding:17px 17px;
+    gap:14px;
+    border-radius:22px;
+  }
+  .day-number{
+    flex-basis:61px;
+    width:61px;
+    height:61px;
+    border-radius:18px;
+  }
+  .day-number .emoji{font-size:1.1rem}
+  .day-number .ordinal{font-size:1rem}
+  .day-title{font-size:1.62rem}
+  .day-desc{font-size:.56rem}
+  .day-date{font-size:.52rem;margin-top:5px}
+  .arrow{font-size:.95rem}
+  .bottom-navigation{gap:5px;margin-top:24px}
+  .bottom-navigation a{padding:10px 12px;font-size:.56rem}
+  .home{width:38px;height:38px;flex-basis:38px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="orb orb-one"></div>
+<div class="orb orb-two"></div>
+<div class="orb orb-three"></div>
+
+<main class="page">
+
+<header class="top">
+
+  <a href="../../index.html" class="signature" aria-label="Back to home">
+    <span class="signature-name">Bugu</span>
+    <span class="signature-heart">♥</span>
+    <span class="signature-name">Pugu</span>
+  </a>
+
+  <div class="eyebrow">
+    <span></span>
+    Our yearly little celebration
+    <span></span>
+  </div>
+
+  <h1>
+    Our
+    <em>Girlfriend's Days</em>
+  </h1>
+
+  <p class="intro">
+    Every year deserves its own little chapter —
+    five pages waiting to hold memories, letters, surprises and love.
+  </p>
+
+</header>
+
+<section class="menu" aria-label="Girlfriend's Day collection">
+
+  <a class="day-card" href="1st/1st.html">
+    <div class="day-number">
+      <div>
+        <div class="emoji">💗</div>
+        <div class="ordinal">1st</div>
+      </div>
+    </div>
+    <div class="day-copy">
+      <div class="day-label">The beginning</div>
+      <h2 class="day-title">1st Girlfriend's Day</h2>
+      <p class="day-desc">The chapter that became a promise for every special day ahead.</p>
+      <div class="day-date">1 August 2025</div>
+    </div>
+    <span class="arrow">↗</span>
+  </a>
+
+  <a class="day-card" href="2nd/2nd.html">
+    <div class="day-number">
+      <div>
+        <div class="emoji">💕</div>
+        <div class="ordinal">2nd</div>
+      </div>
+    </div>
+    <div class="day-copy">
+      <div class="day-label">Another chapter</div>
+      <h2 class="day-title">2nd Girlfriend's Day</h2>
+      <p class="day-desc">Another year, another beautiful memory added to our story.</p>
+      <div class="day-date">1 August 2026</div>
+    </div>
+    <span class="arrow">↗</span>
+  </a>
+
+  <a class="day-card" href="3rd.html">
+    <div class="day-number">
+      <div>
+        <div class="emoji">🌸</div>
+        <div class="ordinal">3rd</div>
+      </div>
+    </div>
+    <div class="day-copy">
+      <div class="day-label">Still choosing you</div>
+      <h2 class="day-title">3rd Girlfriend's Day</h2>
+      <p class="day-desc">A future chapter waiting to be filled with our memories.</p>
+      <div class="day-date">1 August 2027</div>
+    </div>
+    <span class="arrow">↗</span>
+  </a>
+
+  <a class="day-card" href="4th.html">
+    <div class="day-number">
+      <div>
+        <div class="emoji">🌷</div>
+        <div class="ordinal">4th</div>
+      </div>
+    </div>
+    <div class="day-copy">
+      <div class="day-label">More memories</div>
+      <h2 class="day-title">4th Girlfriend's Day</h2>
+      <p class="day-desc">Another little piece of our journey, waiting for its moment.</p>
+      <div class="day-date">1 August 2028</div>
+    </div>
+    <span class="arrow">↗</span>
+  </a>
+
+  <a class="day-card" href="5th.html">
+    <div class="day-number">
+      <div>
+        <div class="emoji">💐</div>
+        <div class="ordinal">5th</div>
+      </div>
+    </div>
+    <div class="day-copy">
+      <div class="day-label">Our story continues</div>
+      <h2 class="day-title">5th Girlfriend's Day</h2>
+      <p class="day-desc">A future page for another beautiful year of Bugu and Pugu.</p>
+      <div class="day-date">1 August 2029</div>
+    </div>
+    <span class="arrow">↗</span>
+  </a>
+
+</section>
+
+<div class="bottom-navigation">
+  <a href="../../specialdays.html">← Special Days</a>
+  <a href="../../index.html" class="home" aria-label="Back to home">🏡</a>
+  <a href="../sorrypages/sorry_menu.html">Sorry Pages →</a>
+</div>
+
+</main>
+
+<script>
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  const symbols = ['♥','♡','✦','🌸','·'];
+
+  function createFloat(){
+    const el = document.createElement('span');
+    el.className = 'floating-symbol';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.animationDuration = (8 + Math.random() * 8) + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    el.style.fontSize = (8 + Math.random() * 10) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 18000);
+  }
+
+  for(let i = 0; i < 9; i++){
+    setTimeout(createFloat, i * 650);
+  }
+
+  setInterval(createFloat, 2500);
+})();
+</script>
+
+</body>
+</html>

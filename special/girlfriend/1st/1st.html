@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6dce8">
+<title>Our 1st Girlfriend's Day 💐 | Bugu & Pugu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#40313a;
+  --muted:#8f7482;
+  --pink:#c95c8f;
+  --rose:#e895b8;
+  --lav:#8b78c9;
+  --cream:#fff9fc;
+  --glass:rgba(255,255,255,.48);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 8% 10%,rgba(255,171,205,.30),transparent 25%),
+    radial-gradient(circle at 92% 14%,rgba(157,143,232,.23),transparent 25%),
+    radial-gradient(circle at 85% 82%,rgba(255,195,153,.20),transparent 24%),
+    linear-gradient(135deg,#fff8fc,#f7f1f8 48%,#fffaf7);
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(255,255,255,.75),transparent 40%),
+    linear-gradient(120deg,transparent,rgba(255,255,255,.28),transparent);
+}
+
+.ambient{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(12px);
+  pointer-events:none;
+  z-index:-1;
+  opacity:.5;
+}
+.a1{width:260px;height:260px;left:-150px;top:22%;background:rgba(237,119,173,.18);animation:drift1 12s ease-in-out infinite}
+.a2{width:330px;height:330px;right:-190px;bottom:8%;background:rgba(118,126,218,.15);animation:drift2 15s ease-in-out infinite}
+
+.page{
+  width:min(900px,100%);
+  margin:auto;
+  padding:22px 22px 70px;
+}
+
+.top{
+  text-align:center;
+  padding-top:4px;
+  animation:fadeDown 1s ease both;
+}
+
+.signature{
+  text-decoration:none !important;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 18px 7px;
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  backdrop-filter:blur(16px);
+  box-shadow:0 12px 35px rgba(76,48,67,.07),inset 0 1px 0 #fff;
+}
+
+.signature-name{
+  font-family:'Parisienne',cursive;
+  color:#b94f82;
+  font-size:1.85rem;
+  line-height:1;
+}
+
+.signature-heart{color:#d56b9d}
+
+.eyebrow{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:11px;
+  color:#a0788d;
+  font-size:.57rem;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.eyebrow span{
+  width:32px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c886a5);
+}
+
+.eyebrow span:last-child{
+  background:linear-gradient(90deg,#c886a5,transparent);
+}
+
+h1{
+  margin:14px 0 8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,8vw,6rem);
+  line-height:.88;
+  font-weight:600;
+  letter-spacing:-1.5px;
+}
+
+h1 em{
+  display:block;
+  font-style:italic;
+  font-weight:500;
+  background:linear-gradient(90deg,#c64f8b,#8a73c9,#d06b91);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:gradient 7s ease-in-out infinite alternate;
+}
+
+.subtitle{
+  max-width:620px;
+  margin:20px auto 0;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.85;
+}
+
+.flower{
+  margin:27px auto 0;
+  width:74px;
+  height:74px;
+  display:grid;
+  place-items:center;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,.82);
+  background:linear-gradient(135deg,rgba(255,225,239,.85),rgba(229,221,250,.72));
+  box-shadow:0 18px 45px rgba(85,56,75,.10),inset 0 1px 0 #fff;
+  font-size:2rem;
+  animation:flowerFloat 4s ease-in-out infinite;
+}
+
+.letter{
+  margin:48px auto 0;
+  padding:clamp(28px,6vw,55px);
+  position:relative;
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:34px;
+  background:linear-gradient(135deg,rgba(255,255,255,.64),rgba(255,255,255,.30));
+  backdrop-filter:blur(24px);
+  box-shadow:0 28px 80px rgba(72,49,65,.10),inset 0 1px 0 #fff;
+  overflow:hidden;
+}
+
+.letter:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(194,110,148,.045) 1px,transparent 1px);
+  background-size:100% 32px;
+  pointer-events:none;
+}
+
+.letter>*{position:relative;z-index:1}
+
+.letter-kicker{
+  color:#b06b89;
+  font-size:.57rem;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+}
+
+h2{
+  margin:10px 0 22px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3rem);
+  line-height:1;
+  color:#493741;
+}
+
+.letter p{
+  margin:0 0 19px;
+  color:#705d67;
+  font-size:.88rem;
+  line-height:1.95;
+}
+
+.letter p strong{color:#a74f7d}
+
+.center-line{
+  text-align:center;
+  margin:34px 0!important;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem!important;
+  line-height:1.45!important;
+  color:#9d5478!important;
+  font-style:italic;
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:37px 0;
+  color:#d087a8;
+  font-size:.8rem;
+}
+.divider:before,.divider:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,#dfabc1);
+}
+.divider:after{background:linear-gradient(90deg,#dfabc1,transparent)}
+
+.promise{
+  margin-top:25px;
+  padding:30px 26px;
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:27px;
+  background:linear-gradient(135deg,rgba(255,228,239,.45),rgba(231,225,252,.38));
+  box-shadow:0 16px 45px rgba(80,52,72,.06),inset 0 1px 0 white;
+}
+
+.promise-title{
+  margin:0 0 13px;
+  font-family:'Parisienne',cursive;
+  font-size:2.2rem;
+  color:#b34f82;
+}
+
+.promise ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.promise li{
+  position:relative;
+  padding:11px 0 11px 28px;
+  color:#765f6b;
+  font-size:.82rem;
+  line-height:1.7;
+}
+
+.promise li:before{
+  content:"♥";
+  position:absolute;
+  left:0;
+  top:11px;
+  color:#d46c9d;
+}
+
+.final{
+  text-align:center;
+  margin:55px auto 0;
+  padding:45px 20px;
+}
+
+.final .small{
+  color:#a17d8f;
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+}
+
+.final h2{
+  font-size:clamp(2.6rem,7vw,4.5rem);
+  margin:13px 0 12px;
+}
+
+.final-message{
+  max-width:620px;
+  margin:auto;
+  color:#806b75;
+  font-size:.84rem;
+  line-height:1.9;
+}
+
+.signature-final{
+  margin-top:28px;
+  font-family:'Parisienne',cursive;
+  font-size:2.4rem;
+  color:#b64f83;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:5px;
+  margin-top:20px;
+}
+
+.nav a{
+  text-decoration:none !important;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 16px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:999px;
+  background:rgba(255,255,255,.30);
+  backdrop-filter:blur(14px);
+  color:#956e82;
+  font-size:.65rem;
+  font-weight:700;
+  box-shadow:0 12px 30px rgba(72,49,65,.06),inset 0 1px 0 white;
+  transition:.35s ease;
+}
+
+.nav a:hover{
+  transform:translateY(-3px);
+  color:#b64f83;
+  box-shadow:0 17px 38px rgba(72,49,65,.11);
+}
+
+.float{
+  position:fixed;
+  bottom:-30px;
+  z-index:0;
+  pointer-events:none;
+  color:#cf709d;
+  opacity:0;
+  animation:floatUp linear forwards;
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-20px)}
+  to{opacity:1;transform:none}
+}
+@keyframes gradient{
+  from{background-position:0% center}
+  to{background-position:100% center}
+}
+@keyframes flowerFloat{
+  50%{transform:translateY(-7px) rotate(3deg)}
+}
+@keyframes drift1{
+  50%{transform:translate(45px,-25px) scale(1.08)}
+}
+@keyframes drift2{
+  50%{transform:translate(-35px,20px) scale(.94)}
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0) scale(.8);opacity:0}
+  12%{opacity:.20}
+  100%{transform:translateY(-110vh) rotate(18deg) scale(1.25);opacity:0}
+}
+
+@media(max-width:650px){
+  .page{padding:16px 14px 45px}
+  .signature-name{font-size:1.65rem}
+  .eyebrow{margin-top:27px;font-size:.47rem;letter-spacing:2.1px}
+  .eyebrow span{width:19px}
+  h1{font-size:clamp(3rem,15vw,4.7rem)}
+  .subtitle{font-size:.70rem}
+  .flower{width:62px;height:62px;border-radius:20px;font-size:1.7rem}
+  .letter{
+    margin-top:34px;
+    padding:27px 21px;
+    border-radius:26px;
+  }
+  .letter p{font-size:.81rem;line-height:1.85}
+  .center-line{font-size:1.3rem!important}
+  .promise{padding:24px 19px}
+  .promise li{font-size:.77rem}
+  .nav{gap:4px}
+  .nav a{padding:10px 12px;font-size:.56rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="ambient a1"></div>
+<div class="ambient a2"></div>
+
+<main class="page">
+
+<header class="top">
+  <a href="../../../index.html" class="signature" aria-label="Back to Special Days">
+    <span class="signature-name">Bugu</span>
+    <span class="signature-heart">♥</span>
+    <span class="signature-name">Pugu</span>
+  </a>
+
+  <div class="eyebrow">
+    <span></span>
+    A letter I should have written sooner
+    <span></span>
+  </div>
+
+  <h1>
+    Our First
+    <em>Girlfriend's Day</em>
+  </h1>
+
+  <p class="subtitle">
+    A little apology for a page I never made, a little celebration for the girl I love,
+    and a promise for every special day still waiting for us.
+  </p>
+
+  <div class="flower">💐</div>
+</header>
+
+<section class="letter">
+
+  <div class="letter-kicker">Dear Bugu,</div>
+  <h2>A page I should have made back then…</h2>
+
+  <p>
+    Happy Girlfriend's Day, my love. ❤️
+  </p>
+
+  <p>
+    I know this page is coming late.
+    And maybe that's exactly why I needed to make it.
+  </p>
+
+  <p>
+    When it was our <strong>first Girlfriend's Day</strong>, I should have made you
+    a beautiful little corner of our story. Something made especially for you.
+    Something you could open and smile at, knowing that your Pugu had spent time
+    creating something just for his Bugu.
+  </p>
+
+  <p>
+    But I didn't.
+  </p>
+
+  <p>
+    And I'm genuinely sorry for that.
+  </p>
+
+  <p>
+    I can't go back and change that day.
+    I can't go back to that moment and suddenly give you the page you deserved.
+  </p>
+
+  <p>
+    But I can do something now.
+  </p>
+
+  <p>
+    I can make sure that the missed page doesn't become a missed feeling.
+  </p>
+
+  <p class="center-line">
+    Because even though I didn't create a webpage for our first Girlfriend's Day…
+    <br>
+    <strong>I never want you to feel like you are not worth celebrating.</strong>
+  </p>
+
+  <p>
+    You are.
+    More than you probably realize.
+  </p>
+
+  <div class="divider">🌸</div>
+
+  <div class="letter-kicker">If I could go back…</div>
+  <h2>I would make a whole little world for you.</h2>
+
+  <p>
+    I'd put our memories inside it.
+  </p>
+
+  <p>
+    Our silly moments. Our conversations. Our pictures.
+    The little things you said that stayed in my heart.
+    The moments when you made me smile without even trying.
+  </p>
+
+  <p>
+    And somewhere in the middle of all of it, I'd write:
+  </p>
+
+  <p class="center-line">
+    “This girl is one of the most beautiful parts of my life.”
+  </p>
+
+  <p>
+    And then I'd probably still keep adding things because somehow
+    there are never enough words for you.
+  </p>
+
+  <p>
+    I'm sorry I didn't make that page then.
+  </p>
+
+  <p>
+    But I hope this page can be my way of finally saying:
+  </p>
+
+  <p class="center-line">
+    <strong>I remember.</strong><br>
+    <strong>I care.</strong><br>
+    <strong>And I'm sorry, Bugu. ❤️</strong>
+  </p>
+
+  <div class="divider">♡</div>
+
+  <div class="letter-kicker">My promise to you</div>
+  <h2>Not just on special days.</h2>
+
+  <p>
+    I don't want to promise you that I will make only the big days special.
+  </p>
+
+  <p>
+    I want to promise you something much bigger.
+  </p>
+
+  <p class="center-line">
+    <strong>I want to make ordinary days feel special too.</strong>
+  </p>
+
+  <div class="promise">
+    <div class="promise-title">A promise from Pugu</div>
+
+    <ul>
+      <li>I promise I'll keep making little things for you.</li>
+      <li>I promise I'll keep creating little pages, surprises and memories.</li>
+      <li>I promise I'll keep finding new ways to make you smile.</li>
+      <li>I promise I'll celebrate your birthday with all my heart.</li>
+      <li>I promise I'll make our anniversaries feel like our own little festivals.</li>
+      <li>I promise I'll remember Valentine's Day, New Year's, Girlfriend's Day and every other day that matters to us.</li>
+      <li>I promise I'll also make the completely ordinary days feel special.</li>
+      <li>And I promise I'll never let a calendar be the only reason I remind you that you are loved.</li>
+    </ul>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <div class="letter-kicker">The days ahead</div>
+  <h2>Our story is bigger than a calendar.</h2>
+
+  <p>
+    I don't want our story to be just:
+  </p>
+
+  <p class="center-line">
+    Birthday → celebration<br>
+    Valentine's → celebration<br>
+    Anniversary → celebration<br>
+    Girlfriend's Day → celebration
+  </p>
+
+  <p>
+    I want it to be:
+  </p>
+
+  <p class="center-line">
+    <strong>Us → celebration.</strong>
+  </p>
+
+  <p>
+    Every day we get to have each other is something worth celebrating.
+    Every month we complete. Every memory we create.
+    Every problem we overcome. Every laugh.
+    Every late-night conversation. Every “good morning.”
+    Every “good night.”
+  </p>
+
+  <p>
+    Every tiny moment that becomes part of our story.
+  </p>
+
+  <p>
+    Those are our special days too.
+  </p>
+
+  <div class="divider">💗</div>
+
+  <div class="letter-kicker">And so…</div>
+  <h2>A missed page doesn't have to mean a missed memory.</h2>
+
+  <p>
+    Maybe I was late with this page.
+    Maybe our first Girlfriend's Day deserved a page back then.
+    And maybe I can't rewrite that part of our story.
+  </p>
+
+  <p>
+    But I can write the next chapters differently.
+  </p>
+
+  <p>
+    From now on, I want every important day to have a little piece of us in it.
+  </p>
+
+  <p class="center-line">
+    And if there isn't already a special day…
+    <br>
+    <strong>I'll find a reason to make one.</strong>
+  </p>
+
+  <p>
+    Because you deserve to be celebrated.
+    Not because it's Girlfriend's Day.
+    Not because it's Valentine's Day.
+    Not because it's your birthday.
+  </p>
+
+  <p class="center-line">
+    But simply because…
+    <br>
+    <strong>you're my Bugu.</strong>
+    <br>
+    And I'm your Pugu.
+  </p>
+
+</section>
+
+<section class="final">
+  <div class="small">A promise from your Pugu</div>
+
+  <h2>Happy Girlfriend's Day,<br><em>my Bugu. 💐</em></h2>
+
+  <p class="final-message">
+    I'm sorry I didn't make this for you when I should have.
+    But thank you for giving me another chance to turn a missed moment
+    into a beautiful memory.
+    <br><br>
+    This page is not only an apology.
+    <strong>It's a promise.</strong>
+    <br><br>
+    A promise that I will keep making our days special —
+    birthdays, anniversaries, Valentine's Days, New Year's,
+    Girlfriend's Days, and all the random little days in between.
+    <br><br>
+    I'll keep creating memories with you.
+    I'll keep choosing you.
+    I'll keep loving you.
+    And I'll keep finding new ways to tell you how important you are to me.
+    <br><br>
+    Because our story deserves more than a few special dates on a calendar.
+    <br>
+    <strong>Our whole story is special.</strong>
+  </p>
+
+  <div class="signature-final">Forever your Pugu ❤️</div>
+</section>
+
+<nav class="nav" aria-label="Page navigation">
+  <a href="../girlfriends_day.html">← Girlfriends Day</a>
+  <a href="../2nd/2nd.html">Next →</a>
+</nav>
+
+</main>
+
+<script>
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  const symbols = ['♥','♡','✦','🌸','·'];
+
+  function createFloat(){
+    const el = document.createElement('span');
+    el.className = 'float';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.animationDuration = (8 + Math.random() * 8) + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    el.style.fontSize = (8 + Math.random() * 12) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 18000);
+  }
+
+  for(let i = 0; i < 9; i++){
+    setTimeout(createFloat, i * 650);
+  }
+
+  setInterval(createFloat, 2400);
+})();
+</script>
+
+</body>
+</html>
