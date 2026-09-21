@@ -304,6 +304,13 @@ h1 em{
       <span class="card-title">Emotional Support</span>
       <span class="card-desc">A gentle corner for the harder days.</span>
     </a>
+
+    <a class="card" href="our-love-book.html">
+  <span class="arrow">↗</span>
+  <span class="card-icon">📖</span>
+  <span class="card-title">Our Love Book</span>
+  <span class="card-desc">A little book filled with our story.</span>
+</a>
   </nav>
 
   <div id="installBanner">💗 Install our little space — Tap Here</div>
@@ -409,15 +416,10 @@ setInterval(()=>{
         return;
       }
 
-      const normalizedQuery = q
-        .replace(/(\d+)st\s+month/g, "$1 month")
-        .replace(/(\d+)nd\s+month/g, "$1 month")
-        .replace(/(\d+)rd\s+month/g, "$1 month")
-        .replace(/(\d+)th\s+month/g, "$1 month");
-      const words = normalizedQuery.split(/\s+/).filter(Boolean);
+      const words = q.split(/\s+/).filter(Boolean);
       const matches = pages
         .map(page => {
-          const hay = (page.title + " " + page.desc + " " + page.href + " " + (page.search || "") + " " + (page.aliases || []).join(" ")).toLowerCase();
+          const hay = (page.title + " " + page.desc + " " + page.href + " " + page.search).toLowerCase();
           const score = words.reduce((n, word) => n + (hay.includes(word) ? 1 : 0), 0);
           return { page, score };
         })
