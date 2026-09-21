@@ -393,14 +393,16 @@ setInterval(()=>{
 
     async function loadIndex() {
       try {
-        const response = await fetch("site-search-index.json", { cache: "no-store" });
+        const indexUrl = new URL("site-search-index.json", document.baseURI);
+        indexUrl.searchParams.set("v", "20260921");
+        const response = await fetch(indexUrl.href, { cache: "no-store" });
         if (!response.ok) throw new Error("Search index unavailable");
         pages = await response.json();
         count.textContent = `${pages.length} pages available to search`;
       } catch (error) {
         pages = [];
         results.classList.add("show");
-        results.innerHTML = '<div class="search-empty">Search index could not be loaded.<br><small>Make sure the project is opened from a web server/hosting, not directly as a file.</small></div>';
+        results.innerHTML = '<div class="search-empty">Search index could not be loaded.<br><small>Please make sure <b>site-search-index.json</b> is uploaded beside index.html.</small></div>';
         count.textContent = "";
       }
     }
