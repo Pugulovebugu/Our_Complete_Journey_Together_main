@@ -273,32 +273,6 @@ body:before{
       0 0 28px rgba(87,180,163,.10);
 }
 
-
-.photo[data-month]{display:none}
-.photo[data-month].is-visible{display:block}
-.placeholder-image{
-    width:100%;
-    aspect-ratio:4/3;
-    border-radius:14px;
-    border:1px dashed rgba(157,224,203,.28);
-    background:radial-gradient(circle at 50% 35%,rgba(157,224,203,.10),transparent 35%),rgba(8,27,27,.58);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    color:#789b94;
-    font-size:.70rem;
-    font-weight:700;
-    letter-spacing:.05em;
-}
-.placeholder-icon{
-    width:36px;height:36px;border-radius:50%;
-    display:grid;place-items:center;
-    border:1px solid rgba(157,224,203,.22);
-    color:#82b9ad;font-size:1rem;
-}
-
 .photo img{
     display:block;
     width:100%;
@@ -372,81 +346,6 @@ body:before{
 }
 
 /* Full-screen viewer: stable, centered, no opening flicker. */
-
-/* Future month placeholders — revealed automatically as each month is completed. */
-.future-photo[data-memory-month="25"]{animation-delay:0.045s}
-.future-photo[data-memory-month="26"]{animation-delay:0.090s}
-.future-photo[data-memory-month="27"]{animation-delay:0.135s}
-.future-photo[data-memory-month="28"]{animation-delay:0.180s}
-.future-photo[data-memory-month="29"]{animation-delay:0.225s}
-.future-photo[data-memory-month="30"]{animation-delay:0.270s}
-.future-photo[data-memory-month="31"]{animation-delay:0.315s}
-.future-photo[data-memory-month="32"]{animation-delay:0.360s}
-.future-photo[data-memory-month="33"]{animation-delay:0.405s}
-.future-photo[data-memory-month="34"]{animation-delay:0.450s}
-.future-photo[data-memory-month="35"]{animation-delay:0.495s}
-.future-photo[data-memory-month="36"]{animation-delay:0.540s}
-.future-photo[data-memory-month="37"]{animation-delay:0.585s}
-.future-photo[data-memory-month="38"]{animation-delay:0.630s}
-.future-photo[data-memory-month="39"]{animation-delay:0.675s}
-.future-photo[data-memory-month="40"]{animation-delay:0.720s}
-.future-photo[data-memory-month="41"]{animation-delay:0.765s}
-.future-photo[data-memory-month="42"]{animation-delay:0.800s}
-.future-photo[data-memory-month="43"]{animation-delay:0.800s}
-.future-photo[data-memory-month="44"]{animation-delay:0.800s}
-.future-photo[data-memory-month="45"]{animation-delay:0.800s}
-.future-photo[data-memory-month="46"]{animation-delay:0.800s}
-.future-photo[data-memory-month="47"]{animation-delay:0.800s}
-.future-photo[data-memory-month="48"]{animation-delay:0.800s}
-
-.future-photo{
-    display:none;
-    cursor:default;
-}
-.future-photo.is-visible{
-    display:block;
-}
-.future-placeholder{
-    width:100%;
-    aspect-ratio:4/3;
-    border-radius:14px;
-    border:1px dashed rgba(121,169,255,.24);
-    background:
-        radial-gradient(circle at 50% 38%,rgba(121,169,255,.10),transparent 35%),
-        rgba(12,24,43,.45);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-.placeholder-icon{
-    width:48px;
-    height:48px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    border:1px solid rgba(121,169,255,.20);
-    color:#8eaeeb;
-    font-size:1.2rem;
-    margin-bottom:10px;
-    background:rgba(121,169,255,.06);
-}
-.placeholder-month{
-    color:#a9c2ec;
-    font-size:.78rem;
-    font-weight:700;
-    letter-spacing:.05em;
-}
-.placeholder-caption{
-    margin-top:5px;
-    color:#7187aa;
-    font-size:.68rem;
-}
-.future-photo .card-meta{
-    opacity:.82;
-}
-
 #lightbox{
     position:fixed;
     inset:0;
@@ -571,9 +470,9 @@ footer{
 
 <header class="hero">
     <div class="hero-inner">
-        <div class="eyebrow">✦ <span id="monthsEyebrow">13 months</span> of smiles, snapshots & little moments</div>
+        <div class="eyebrow">✦ 24 months of smiles, snapshots & little moments</div>
         <h1>Selfie <em>Memories</em></h1>
-        <p>Every little window into her world — every smile, expression and random moment that became a memory worth keeping across <span id="monthsHero">13 months</span>.</p>
+        <p>Twenty-four little windows into her world — every smile, expression and random moment that became a memory worth keeping.</p>
         <div class="hero-actions">
             <a class="hero-btn primary" href="#memories">Explore memories ↓</a>
             <a class="hero-btn secondary" href="../gallery.html">← Back to gallery</a>
@@ -586,13 +485,13 @@ footer{
     <div class="section-heading">
         <div>
             <div class="small">The selfie archive</div>
-            <h2><span id="monthsHeading">13 months</span> of her smiles</h2>
+            <h2>24 months of her smiles</h2>
         </div>
         <p>Tap any selfie to view it full screen.</p>
     </div>
 
     <div class="gallery">
-            <article class="photo" data-month="1" onclick="openLightbox('selfie/selfie1.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie1.jpg')">
                 <div class="photo-number">#01</div>
                 <img src="selfie/selfie1.jpg" alt="Month 1 selfie" loading="lazy">
                 <div class="card-meta">
@@ -601,7 +500,7 @@ footer{
                 </div>
                 <div class="caption">The Smile I Fell For 💗</div>
             </article>
-<article class="photo" data-month="2" onclick="openLightbox('selfie/selfie2.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie2.jpg')">
                 <div class="photo-number">#02</div>
                 <img src="selfie/selfie2.jpg" alt="Month 2 selfie" loading="lazy">
                 <div class="card-meta">
@@ -610,7 +509,7 @@ footer{
                 </div>
                 <div class="caption">My Little Sunshine ☀️</div>
             </article>
-<article class="photo" data-month="3" onclick="openLightbox('selfie/selfie3.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie3.jpg')">
                 <div class="photo-number">#03</div>
                 <img src="selfie/selfie3.jpg" alt="Month 3 selfie" loading="lazy">
                 <div class="card-meta">
@@ -619,7 +518,7 @@ footer{
                 </div>
                 <div class="caption">Those Eyes, My World ✨</div>
             </article>
-<article class="photo" data-month="4" onclick="openLightbox('selfie/selfie4.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie4.jpg')">
                 <div class="photo-number">#04</div>
                 <img src="selfie/selfie4.jpg" alt="Month 4 selfie" loading="lazy">
                 <div class="card-meta">
@@ -628,7 +527,7 @@ footer{
                 </div>
                 <div class="caption">My Favorite Face 🌸</div>
             </article>
-<article class="photo" data-month="5" onclick="openLightbox('selfie/selfie5.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie5.jpg')">
                 <div class="photo-number">#05</div>
                 <img src="selfie/selfie5.jpg" alt="Month 5 selfie" loading="lazy">
                 <div class="card-meta">
@@ -637,7 +536,7 @@ footer{
                 </div>
                 <div class="caption">Sweetest Little Moment 🎀</div>
             </article>
-<article class="photo" data-month="6" onclick="openLightbox('selfie/selfie6.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie6.jpg')">
                 <div class="photo-number">#06</div>
                 <img src="selfie/selfie6.jpg" alt="Month 6 selfie" loading="lazy">
                 <div class="card-meta">
@@ -646,7 +545,7 @@ footer{
                 </div>
                 <div class="caption">Beautiful Beyond Words 💕</div>
             </article>
-<article class="photo" data-month="7" onclick="openLightbox('selfie/selfie7.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie7.jpg')">
                 <div class="photo-number">#07</div>
                 <img src="selfie/selfie7.jpg" alt="Month 7 selfie" loading="lazy">
                 <div class="card-meta">
@@ -655,7 +554,7 @@ footer{
                 </div>
                 <div class="caption">My Happy Place 🥰</div>
             </article>
-<article class="photo" data-month="8" onclick="openLightbox('selfie/selfie8.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie8.jpg')">
                 <div class="photo-number">#08</div>
                 <img src="selfie/selfie8.jpg" alt="Month 8 selfie" loading="lazy">
                 <div class="card-meta">
@@ -664,7 +563,7 @@ footer{
                 </div>
                 <div class="caption">That Gorgeous Smile 🌷</div>
             </article>
-<article class="photo" data-month="9" onclick="openLightbox('selfie/selfie9.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie9.jpg')">
                 <div class="photo-number">#09</div>
                 <img src="selfie/selfie9.jpg" alt="Month 9 selfie" loading="lazy">
                 <div class="card-meta">
@@ -673,7 +572,7 @@ footer{
                 </div>
                 <div class="caption">Forever My Favorite 📸</div>
             </article>
-<article class="photo" data-month="10" onclick="openLightbox('selfie/selfie10.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie10.jpg')">
                 <div class="photo-number">#10</div>
                 <img src="selfie/selfie10.jpg" alt="Month 10 selfie" loading="lazy">
                 <div class="card-meta">
@@ -682,7 +581,7 @@ footer{
                 </div>
                 <div class="caption">A Smile Worth Keeping 💖</div>
             </article>
-<article class="photo" data-month="11" onclick="openLightbox('selfie/selfie11.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie11.jpg')">
                 <div class="photo-number">#11</div>
                 <img src="selfie/selfie11.jpg" alt="Month 11 selfie" loading="lazy">
                 <div class="card-meta">
@@ -691,7 +590,7 @@ footer{
                 </div>
                 <div class="caption">Pure Cuteness ✨</div>
             </article>
-<article class="photo" data-month="12" onclick="openLightbox('selfie/selfie12.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie12.jpg')">
                 <div class="photo-number">#12</div>
                 <img src="selfie/selfie12.jpg" alt="Month 12 selfie" loading="lazy">
                 <div class="card-meta">
@@ -700,7 +599,7 @@ footer{
                 </div>
                 <div class="caption">My Heart's Favorite View 🌙</div>
             </article>
-<article class="photo" data-month="13" onclick="openLightbox('selfie/selfie13.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie13.jpg')">
                 <div class="photo-number">#13</div>
                 <img src="selfie/selfie13.jpg" alt="Month 13 selfie" loading="lazy">
                 <div class="card-meta">
@@ -709,7 +608,7 @@ footer{
                 </div>
                 <div class="caption">Another Perfect Memory 💗</div>
             </article>
-<article class="photo" data-month="14" onclick="openLightbox('selfie/selfie14.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie14.jpg')">
                 <div class="photo-number">#14</div>
                 <img src="selfie/selfie14.jpg" alt="Month 14 selfie" loading="lazy">
                 <div class="card-meta">
@@ -718,7 +617,7 @@ footer{
                 </div>
                 <div class="caption">Simply Irresistible 🌸</div>
             </article>
-<article class="photo" data-month="15" onclick="openLightbox('selfie/selfie15.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie15.jpg')">
                 <div class="photo-number">#15</div>
                 <img src="selfie/selfie15.jpg" alt="Month 15 selfie" loading="lazy">
                 <div class="card-meta">
@@ -727,7 +626,7 @@ footer{
                 </div>
                 <div class="caption">The Prettiest Chapter 🎀</div>
             </article>
-<article class="photo" data-month="16" onclick="openLightbox('selfie/selfie16.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie16.jpg')">
                 <div class="photo-number">#16</div>
                 <img src="selfie/selfie16.jpg" alt="Month 16 selfie" loading="lazy">
                 <div class="card-meta">
@@ -736,7 +635,7 @@ footer{
                 </div>
                 <div class="caption">My Beautiful Constant 💕</div>
             </article>
-<article class="photo" data-month="17" onclick="openLightbox('selfie/selfie17.jpg')">
+            <article class="photo" onclick="openLightbox('selfie/selfie17.jpg')">
                 <div class="photo-number">#17</div>
                 <img src="selfie/selfie17.jpg" alt="Month 17 selfie" loading="lazy">
                 <div class="card-meta">
@@ -745,7 +644,7 @@ footer{
                 </div>
                 <div class="caption">A Face Full of Sunshine ☀️</div>
             </article>
-<article class="photo" data-month="18" onclick="openLightbox('selfie18.jpg')">
+            <article class="photo" onclick="openLightbox('selfie18.jpg')">
                 <div class="photo-number">#18</div>
                 <img src="selfie/selfie18.jpg" alt="Month 18 selfie" loading="lazy">
                 <div class="card-meta">
@@ -754,7 +653,7 @@ footer{
                 </div>
                 <div class="caption">My Favorite Person 📸</div>
             </article>
-<article class="photo" data-month="19" onclick="openLightbox('selfie19.jpg')">
+            <article class="photo" onclick="openLightbox('selfie19.jpg')">
                 <div class="photo-number">#19</div>
                 <img src="selfie/selfie19.jpg" alt="Month 19 selfie" loading="lazy">
                 <div class="card-meta">
@@ -763,7 +662,7 @@ footer{
                 </div>
                 <div class="caption">Love in One Picture 💖</div>
             </article>
-<article class="photo" data-month="20" onclick="openLightbox('selfie20.jpg')">
+            <article class="photo" onclick="openLightbox('selfie20.jpg')">
                 <div class="photo-number">#20</div>
                 <img src="selfie/selfie20.jpg" alt="Month 20 selfie" loading="lazy">
                 <div class="card-meta">
@@ -772,7 +671,7 @@ footer{
                 </div>
                 <div class="caption">Still Falling for You ✨</div>
             </article>
-<article class="photo" data-month="21" onclick="openLightbox('selfie21.jpg')">
+            <article class="photo" onclick="openLightbox('selfie21.jpg')">
                 <div class="photo-number">#21</div>
                 <img src="selfie/selfie21.jpg" alt="Month 21 selfie" loading="lazy">
                 <div class="card-meta">
@@ -781,7 +680,7 @@ footer{
                 </div>
                 <div class="caption">My Forever Smile 🌷</div>
             </article>
-<article class="photo" data-month="22" onclick="openLightbox('selfie22.jpg')">
+            <article class="photo" onclick="openLightbox('selfie22.jpg')">
                 <div class="photo-number">#22</div>
                 <img src="selfie/selfie22.jpg" alt="Month 22 selfie" loading="lazy">
                 <div class="card-meta">
@@ -790,7 +689,7 @@ footer{
                 </div>
                 <div class="caption">A Moment to Treasure 🥰</div>
             </article>
-<article class="photo" data-month="23" onclick="openLightbox('selfie23.jpg')">
+            <article class="photo" onclick="openLightbox('selfie23.jpg')">
                 <div class="photo-number">#23</div>
                 <img src="selfie/selfie23.jpg" alt="Month 23 selfie" loading="lazy">
                 <div class="card-meta">
@@ -799,7 +698,7 @@ footer{
                 </div>
                 <div class="caption">Beautiful as Always 💗</div>
             </article>
-<article class="photo" data-month="24" onclick="openLightbox('selfie24.jpg')">
+            <article class="photo" onclick="openLightbox('selfie24.jpg')">
                 <div class="photo-number">#24</div>
                 <img src="selfie/selfie24.jpg" alt="Month 24 selfie" loading="lazy">
                 <div class="card-meta">
@@ -807,582 +706,6 @@ footer{
                     <span class="open-hint">View ↗</span>
                 </div>
                 <div class="caption">24 Months of You 🎂</div>
-            </article>
-<article class="photo future-photo" data-memory-month="25" aria-hidden="true">
-                <div class="photo-number">#25</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 25</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 25 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="26" aria-hidden="true">
-                <div class="photo-number">#26</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 26</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 26 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="27" aria-hidden="true">
-                <div class="photo-number">#27</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 27</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 27 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="28" aria-hidden="true">
-                <div class="photo-number">#28</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 28</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 28 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="29" aria-hidden="true">
-                <div class="photo-number">#29</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 29</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 29 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="30" aria-hidden="true">
-                <div class="photo-number">#30</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 30</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 30 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="31" aria-hidden="true">
-                <div class="photo-number">#31</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 31</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 31 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="32" aria-hidden="true">
-                <div class="photo-number">#32</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 32</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 32 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="33" aria-hidden="true">
-                <div class="photo-number">#33</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 33</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 33 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="34" aria-hidden="true">
-                <div class="photo-number">#34</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 34</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 34 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="35" aria-hidden="true">
-                <div class="photo-number">#35</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 35</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 35 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="36" aria-hidden="true">
-                <div class="photo-number">#36</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 36</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 36 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="37" aria-hidden="true">
-                <div class="photo-number">#37</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 37</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 37 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="38" aria-hidden="true">
-                <div class="photo-number">#38</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 38</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 38 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="39" aria-hidden="true">
-                <div class="photo-number">#39</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 39</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 39 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="40" aria-hidden="true">
-                <div class="photo-number">#40</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 40</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 40 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="41" aria-hidden="true">
-                <div class="photo-number">#41</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 41</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 41 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="42" aria-hidden="true">
-                <div class="photo-number">#42</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 42</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 42 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="43" aria-hidden="true">
-                <div class="photo-number">#43</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 43</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 43 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="44" aria-hidden="true">
-                <div class="photo-number">#44</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 44</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 44 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="45" aria-hidden="true">
-                <div class="photo-number">#45</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 45</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 45 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="46" aria-hidden="true">
-                <div class="photo-number">#46</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 46</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 46 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="47" aria-hidden="true">
-                <div class="photo-number">#47</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 47</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 47 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-<article class="photo future-photo" data-memory-month="48" aria-hidden="true">
-                <div class="photo-number">#48</div>
-                <div class="future-placeholder">
-                    <div class="placeholder-icon">✦</div>
-                    <div class="placeholder-month">Month 48</div>
-                    <div class="placeholder-caption">A new smile is waiting here ✨</div>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 48 Selfie</span>
-                    <span class="open-hint">Add photo</span>
-                </div>
-            </article>
-            <article class="photo future-memory" data-month="25" aria-hidden="true">
-                <div class="photo-number">#25</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 25</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 25</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="26" aria-hidden="true">
-                <div class="photo-number">#26</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 26</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 26</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="27" aria-hidden="true">
-                <div class="photo-number">#27</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 27</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 27</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="28" aria-hidden="true">
-                <div class="photo-number">#28</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 28</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 28</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="29" aria-hidden="true">
-                <div class="photo-number">#29</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 29</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 29</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="30" aria-hidden="true">
-                <div class="photo-number">#30</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 30</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 30</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="31" aria-hidden="true">
-                <div class="photo-number">#31</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 31</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 31</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="32" aria-hidden="true">
-                <div class="photo-number">#32</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 32</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 32</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="33" aria-hidden="true">
-                <div class="photo-number">#33</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 33</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 33</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="34" aria-hidden="true">
-                <div class="photo-number">#34</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 34</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 34</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="35" aria-hidden="true">
-                <div class="photo-number">#35</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 35</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 35</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="36" aria-hidden="true">
-                <div class="photo-number">#36</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 36</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 36</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="37" aria-hidden="true">
-                <div class="photo-number">#37</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 37</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 37</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="38" aria-hidden="true">
-                <div class="photo-number">#38</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 38</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 38</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="39" aria-hidden="true">
-                <div class="photo-number">#39</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 39</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 39</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="40" aria-hidden="true">
-                <div class="photo-number">#40</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 40</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 40</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="41" aria-hidden="true">
-                <div class="photo-number">#41</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 41</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 41</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="42" aria-hidden="true">
-                <div class="photo-number">#42</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 42</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 42</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="43" aria-hidden="true">
-                <div class="photo-number">#43</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 43</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 43</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="44" aria-hidden="true">
-                <div class="photo-number">#44</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 44</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 44</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="45" aria-hidden="true">
-                <div class="photo-number">#45</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 45</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 45</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="46" aria-hidden="true">
-                <div class="photo-number">#46</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 46</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 46</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="47" aria-hidden="true">
-                <div class="photo-number">#47</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 47</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 47</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
-            </article>
-            <article class="photo future-memory" data-month="48" aria-hidden="true">
-                <div class="photo-number">#48</div>
-                <div class="placeholder-image">
-                    <span class="placeholder-icon">✦</span>
-                    <span>Month 48</span>
-                </div>
-                <div class="card-meta">
-                    <span class="month-label">Month 48</span>
-                    <span class="open-hint">Coming soon</span>
-                </div>
-                <div class="caption">A new smile is waiting ✨</div>
             </article>
     </div>
 </main>
@@ -1423,113 +746,5 @@ document.addEventListener("keydown", function(e){
     if(e.key === "Escape") closeLightbox();
 });
 </script>
-
-<script>
-(function () {
-    const START = new Date(2025, 6, 22, 0, 27, 0, 0);
-
-    function completedMonths(now) {
-        let months = (now.getFullYear() - START.getFullYear()) * 12
-                  + (now.getMonth() - START.getMonth());
-
-        const anniversary = new Date(
-            START.getFullYear(),
-            START.getMonth() + months,
-            START.getDate(),
-            START.getHours(),
-            START.getMinutes(),
-            START.getSeconds(),
-            START.getMilliseconds()
-        );
-
-        if (now < anniversary) months--;
-        return Math.max(0, months);
-    }
-
-    function updateMonthHeadings() {
-        const months = completedMonths(new Date());
-        const text = months + " " + (months === 1 ? "month" : "months");
-
-        document.querySelectorAll(".photo[data-month]").forEach(card => {
-            const month = Number(card.dataset.month);
-            const visible = month <= months;
-            card.classList.toggle("is-visible", visible);
-            card.setAttribute("aria-hidden", visible ? "false" : "true");
-        });
-
-        ["monthsEyebrow", "monthsHero", "monthsHeading"].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = text;
-        });
-
-        // Reveal exactly the number of completed month placeholders.
-        document.querySelectorAll(".future-photo").forEach(card => {
-            const month = Number(card.dataset.memoryMonth);
-            const visible = month <= months;
-            card.classList.toggle("is-visible", visible);
-            card.setAttribute("aria-hidden", visible ? "false" : "true");
-        });
-    }
-
-    updateMonthHeadings();
-
-    // Re-check every minute so the new placeholder appears automatically
-    // when the monthly anniversary time passes while the page is open.
-    setInterval(updateMonthHeadings, 60 * 1000);
-})();
-</script>
-
-
-<script>
-(function () {
-    // Relationship start: 22 July 2025 at 12:27 AM.
-    const START = new Date(2025, 6, 22, 0, 27, 0, 0);
-
-    function completedMonths(now) {
-        let months =
-            (now.getFullYear() - START.getFullYear()) * 12 +
-            (now.getMonth() - START.getMonth());
-
-        const anniversary = new Date(
-            START.getFullYear(),
-            START.getMonth() + months,
-            START.getDate(),
-            START.getHours(),
-            START.getMinutes(),
-            START.getSeconds(),
-            START.getMilliseconds()
-        );
-
-        if (now < anniversary) months--;
-        return Math.max(0, months);
-    }
-
-    function updateEverything() {
-        const months = completedMonths(new Date());
-        const label = months + (months === 1 ? " month" : " months");
-
-        // Update every heading/title/span explicitly marked as a month count.
-        document.querySelectorAll("[data-month-count]").forEach(el => {
-            el.textContent = label;
-        });
-
-        // Control all 48 photo slots from the same completed-month count.
-        document.querySelectorAll(".photo[data-month]").forEach(card => {
-            const month = Number(card.dataset.month);
-            const visible = month <= months;
-
-            card.classList.toggle("is-visible", visible);
-            card.setAttribute("aria-hidden", visible ? "false" : "true");
-        });
-    }
-
-    updateEverything();
-
-    // Re-check once per minute so an already-open page updates at the
-    // anniversary moment without requiring a reload.
-    setInterval(updateEverything, 60 * 1000);
-})();
-</script>
-
 </body>
 </html>
